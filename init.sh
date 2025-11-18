@@ -13,7 +13,7 @@ echo "en_US ISO-8859-1" >> /etc/locale.gen
 
 
 ## INSTALL
-pacman -Syy &&
+pacman -Syy --noconfirm &&
 pacman -S linux-zen\
     scx-scheds \
     wireless-regdb \
