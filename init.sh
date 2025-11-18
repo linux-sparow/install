@@ -13,6 +13,8 @@ echo "en_US ISO-8859-1" >> /etc/locale.gen
 
 
 ## INSTALL
+curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash &&
+
 pacman -Syy --noconfirm &&
 pacman -S linux-zen\
     scx-scheds \
