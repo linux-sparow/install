@@ -76,8 +76,8 @@ rm /usr/share/xsessions/kodi.desktop &&
 
 
 ## CONFIG
-cp -fr $(pwd)/base/* / &&
-cp -fr $(pwd)/extra/amd/* / &&
+cp -fr /post/base/* / &&
+cp -fr /post/extra/amd/* / &&
 
 
 ## LOCALE
