@@ -37,7 +37,8 @@ fi
 
 
 PROCDISK=(root opts vars nets conf vlog vtmp vpac vaud temp docs)
-DATADISK=(home repo)
+DATADISK=(home droi)
+
 
 for n in "${PROCDISK[@]}"
 do
