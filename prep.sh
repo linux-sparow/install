@@ -36,8 +36,8 @@ if [[ -z $( vgs | grep data ) ]]; then
 fi
 
 
-PROCDISK=(root opts vars nets conf vlog vtmp vpac vaud temp docs)
-DATADISK=(home droi)
+PROCDISK=(root opts vars nets conf vlog vtmp vpac vaud temp docs droi)
+DATADISK=(home)
 
 
 for n in "${PROCDISK[@]}"
