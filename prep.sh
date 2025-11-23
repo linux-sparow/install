@@ -20,7 +20,7 @@ fi
 
 
 
-mkfs.vfat -F32 -S 4096 -n BOOT $DISKBOOT
+mkfs.vfat -F32 -S 4096 -n BOOT $DISKBOOT &&
 mkfs.ext4 -F -b 4096 /dev/mapper/proc &&
 mkfs.ext4 -F -b 4096 /dev/mapper/data &&
 

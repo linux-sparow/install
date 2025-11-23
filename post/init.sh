@@ -2,6 +2,9 @@
 
 source /post/config
 
+#HOSTNAME
+echo "eyerise" > /etc/hostname &&
+
 ## LOCALTIME 
 ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime &&
 hwclock --systohc &&
@@ -9,9 +12,11 @@ timedatectl set-ntp true &&
 timedatectl set-timezone $TIMEZONE &&
 
 
-## LOCALES
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && 
-echo "en_US ISO-8859-1" >> /etc/locale.gen  && 
+## CONFIG
+cp -fr /post/base/* / &&
+
+
+## LOCALE
 locale-gen &&
 
 
@@ -41,15 +46,6 @@ if [[ ! -z $(lspci | grep -i --color '3d\|AMD\|AMD/ATI\|RADEON') ]];then
 fi
 
 
-
-## CONFIG
-cp -fr /post/base/* / &&
-
-
-## LOCALE
-locale-gen &&
-
-
 ## SERVICE
 systemctl enable sddm &&
 systemctl enable sshd &&
@@ -59,7 +55,7 @@ systemctl enable update.timer &&
 systemctl enable NetworkManager &&
 systemctl enable --global pipewire-pulse &&
 systemctl enable systemd-timesyncd.service &&
-systemctl enable waydroid-container.service
+systemctl enable waydroid-container.service &&
 
 
 ## BOOTING
@@ -80,12 +76,12 @@ chmod +x /usr/local/rbin/* &&
 
 ## LUKSDISK
 echo "rd.luks.name=$(blkid -s UUID -o value $DISKPROC)=root root=/dev/mapper/root" > /etc/cmdline.d/01-boot.conf &&
-echo "data UUID=$(blkid -s UUID -o value $DISKDATA) none" >> /etc/crypttab 
-mkinitcpio -P
+echo "data UUID=$(blkid -s UUID -o value $DISKDATA) none" >> /etc/crypttab &&
+mkinitcpio -P &&
 
 
 ## WAYDROID
-waydroid init -s GAPPS 
+waydroid init -s GAPPS &&
 
 
 
