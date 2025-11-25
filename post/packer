@@ -72,6 +72,7 @@ DISTRO_INSTALLATION_PACKAGE="linux-zen
     libvirt
     qemu-desktop
     podman-desktop
+    docker
     nginx
     code
     hugo
