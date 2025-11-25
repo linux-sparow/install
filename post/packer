@@ -71,6 +71,7 @@ DISTRO_INSTALLATION_PACKAGE="linux-zen
     virt-manager
     libvirt
     qemu-desktop
+    podman
     podman-desktop
     docker
     nginx
