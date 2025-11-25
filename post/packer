@@ -1,4 +1,4 @@
-DISTRO_INSTALLATION_PACKAGE="linux-zen 
+DISTRO_INSTALLATION_PACKAGE="linux-zen
     scx-scheds 
     wireless-regdb 
 	iptables-nft 
@@ -68,24 +68,22 @@ DISTRO_INSTALLATION_PACKAGE="linux-zen
     xdg-user-dirs-gtk
     evolution
     keepassxc 
-    waydroid
-    qtcreator
+    virt-manager
+    libvirt
+    qemu-desktop
+    podman-desktop
     nginx
     code
-    yad
-    gnome-builder
-    php
-    php-xsl
-    php-fpm
-    php-gd
-    php-intl
-    php-sqlite
-    php-mysql
-    php-curl
-    php-mbstring
-    ruby
-    rustup
-    nodejs-lts-iron
-    npm
-    composer
-    mariadb"
+    hugo
+    go
+    apparmor
+    lvm2
+    testdisk
+    btrfs-progs
+    xfsprogs
+    ntfs-3g
+    dosfstools
+    ethtool
+    rsync
+    grsync
+    grafana"

@@ -50,13 +50,16 @@ fi
 systemctl enable gdm &&
 systemctl enable sshd &&
 systemctl enable nginx &&
+systemctl enable docker &&
 systemctl enable dnsmasq &&
+systemctl enable libvirtd &&
 systemctl enable firewalld &&
 systemctl enable update.timer &&
 systemctl enable NetworkManager &&
+systemctl enable grafana.service &&
 systemctl enable --global pipewire-pulse &&
 systemctl enable systemd-timesyncd.service &&
-systemctl enable waydroid-container.service &&
+systemctl enable --global gcr-ssh-agent.socket &&
 
 
 
@@ -81,12 +84,6 @@ echo "rd.luks.name=$(blkid -s UUID -o value $DISKPROC)=root root=/dev/mapper/roo
 echo "data UUID=$(blkid -s UUID -o value $DISKDATA) none" >> /etc/crypttab &&
 mkinitcpio -P &&
 
-
-## WAYDROID
-waydroid init -s GAPPS &&
-
-## LARAVEL
-composer global require laravel/installer &&
 
 ## USERADD
 useradd -m $USERNAME &&

@@ -1,5 +1,5 @@
-DISKBOOT=/dev/sda1
-DISKPROC=/dev/sda2
-DISKDATA=/dev/sda3
-USERNAME=fras
+DISKBOOT=/dev/nvme0n1p8
+DISKPROC=/dev/nvme0n1p10
+DISKDATA=/dev/nvme0n1p11
+USERNAME=dimas
 TIMEZONE=Asia/Jakarta

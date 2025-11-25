@@ -12,12 +12,12 @@ PRESETS=('default')
 
 
 #default_config="/etc/mkinitcpio.conf"
-#default_image="/boot/eyerise.img"
-default_uki="/boot/efi/linux/eyerise.efi"
-#default_options="--splash /usr/share/systemd/bootctl/eyerise.bmp"
+#default_image="/boot/sparow.img"
+default_uki="/boot/efi/linux/sparow.efi"
+#default_options="--splash /usr/share/systemd/bootctl/sparow.bmp"
 
 
 #fallback_config="/etc/mkinitcpio.conf"
-#fallback_image="/boot/eyerise-fallback.img"
-#fallback_uki="/boot/efi/linux/eyerise-fallback.efi"
+#fallback_image="/boot/sparow-fallback.img"
+#fallback_uki="/boot/efi/linux/sparow-fallback.efi"
 #fallback_options="-S autodetect"
