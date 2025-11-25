@@ -25,11 +25,11 @@ locale-gen &&
 systemctl enable gdm &&
 systemctl enable sshd &&
 systemctl enable nginx &&
-systemctl enable docker &&
 systemctl enable dnsmasq &&
 systemctl enable libvirtd &&
 systemctl enable firewalld &&
 systemctl enable update.timer &&
+systemctl enable docker.socket &&
 systemctl enable NetworkManager &&
 systemctl enable grafana.service &&
 systemctl enable --global pipewire-pulse &&
