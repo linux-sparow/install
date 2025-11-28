@@ -33,5 +33,11 @@ Installation scripts for Sparow OS
 | 29  | xfsprogs   | managing the xfs file systems                                        | core    |
 
 
-## themes
-Nordic: https://www.gnome-look.org/p/1267246
+## Appearance Information
+| no  | name       | description                                                          | 
+| --- | ---------- | -------------------------------------------------------------------- | 
+| 1   | [Nordic](https://www.gnome-look.org/p/1267246)  | theme                          |
+| 2   | []()  | gnome-shell                          |
+| 3   | []()  | gdm                          |
+| 4   | []()  | plymouth                          |
+| 5   | []()  | grub theme                          |        
