@@ -55,11 +55,6 @@ chmod +x /usr/xbin/* &&
 chmod +x /usr/rbin/* &&
 
 
-##
-## SESSION
-rm /usr/share/wayland-sessions/weston.desktop &&
-
-
 
 ## BOOTING
 echo "root=$DISKPROC" > /etc/cmdline.d/01-boot.conf &&
