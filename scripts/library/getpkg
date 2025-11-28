@@ -12,11 +12,10 @@ fi
 
 
 ## prepare packar
-if [[ -d $1/packer ]]; then
-    rm -fr $1/packer/*
-else
+if [[ ! -d $1/packer ]]; then
     mkdir $1/packer
 fi
+
 
 
 ## download packar
