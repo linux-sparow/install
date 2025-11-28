@@ -1,5 +1,0 @@
-DISKBOOT=/dev/nvme0n1p8
-DISKPROC=/dev/nvme0n1p10
-DISKDATA=/dev/nvme0n1p11
-USERNAME=dimas
-TIMEZONE=Asia/Jakarta
