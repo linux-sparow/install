@@ -37,7 +37,7 @@ Installation scripts for Sparow OS
 | no  | name       | description                                                          | 
 | --- | ---------- | -------------------------------------------------------------------- | 
 | 1   | [Nordic](https://www.gnome-look.org/p/1267246)  | theme                          |
-| 2   | []()  | gnome-shell                          |
+| 2   | [Darcwaita](https://www.gnome-look.org/p/1267886)  | gnome-shell                          |
 | 3   | []()  | gdm                          |
 | 4   | []()  | plymouth                          |
 | 5   | []()  | grub theme                          |        
