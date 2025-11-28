@@ -1,10 +1,13 @@
-DISTRO_INSTALLATION_PACKAGE="linux-zen
-    scx-scheds 
+DISTRO_INSTALLATION_PACKAGE="base
+    base-devel
+    linux-zen
+    scx-scheds
     wireless-regdb 
+    grub
+    efibootmgr
+    os-prober
 	iptables-nft 
     mkinitcpio 
-	base 
-    base-devel 
     mesa  
     linux-firmware 
     sof-firmware 
