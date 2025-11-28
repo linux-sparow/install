@@ -27,13 +27,10 @@ if [[ $1 == "--reset" ]];then
     exit
 fi
 
-
 if [[ $1 == "--getapp" ]];then
-    /bin/bash $appdir/library/getpkg &&
+    /bin/bash $(pwd)/scripts/library/getpkg $reldir &&
     exit
 fi
-
-
 
 if [[ $1 == "--update" ]];then
     echo "pull repository" && git pull && 
