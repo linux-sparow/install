@@ -38,6 +38,6 @@ Installation scripts for Sparow OS
 | --- | ---------- | -------------------------------------------------------------------- | 
 | 1   | [Nordic](https://www.gnome-look.org/p/1267246)  | theme                          |
 | 2   | [Copernico](https://www.gnome-look.org/p/1013056)  | gnome-shell                          |
-| 3   | []()  | gdm                          |
+| 3   | [Black Glass](https://www.gnome-look.org/p/1010196)  | gdm                          |
 | 4   | []()  | plymouth                          |
 | 5   | []()  | grub theme                          |        
