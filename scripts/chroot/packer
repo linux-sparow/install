@@ -35,6 +35,7 @@ DISTRO_INSTALLATION_PACKAGE="base
     btop 
     gdm
     baobab
+    gnome-shell
     gnome-backgrounds
     gnome-calculator
     gnome-calendar
@@ -46,6 +47,7 @@ DISTRO_INSTALLATION_PACKAGE="base
     gnome-logs
     gnome-menus
     gnome-session
+    gnome-control-center
     gnome-settings-daemon
     gnome-shell
     gnome-software
