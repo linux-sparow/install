@@ -1,7 +1,8 @@
 DISTRO_NAME="Sparow"
 DISTRO_UNIQ="sparow"
+DISTRO_DESK="gnome"
 
-DISTRO_INSTALLATION_PACKAGE="base base-devel
+DISTRO_PACKAGE="base base-devel
     linux-zen
     scx-scheds
     wireless-regdb 
@@ -35,44 +36,6 @@ DISTRO_INSTALLATION_PACKAGE="base base-devel
 	firefox 
     fuse 
     btop 
-    gdm
-    baobab
-    gnome-shell
-    gnome-backgrounds
-    gnome-calculator
-    gnome-calendar
-    gnome-color-manager
-    gnome-console
-    gnome-disk-utility
-    gnome-font-viewer
-    gnome-keyring
-    gnome-logs
-    gnome-menus
-    gnome-session
-    gnome-control-center
-    gnome-settings-daemon
-    gnome-shell
-    gnome-software
-    gnome-system-monitor
-    grilo-plugins
-    gvfs
-    gvfs-afc
-    gvfs-dnssd
-    gvfs-goa
-    gvfs-google
-    gvfs-gphoto2
-    gvfs-mtp
-    gvfs-nfs
-    gvfs-onedrive
-    gvfs-smb
-    gvfs-wsdd
-    loupe
-    nautilus
-    papers
-    snapshot
-    sushi
-    xdg-desktop-portal-gnome
-    xdg-user-dirs-gtk
     evolution
     keepassxc 
     virt-manager
@@ -98,7 +61,9 @@ DISTRO_INSTALLATION_PACKAGE="base base-devel
     grafana"
 
 
-DISTRO_DAEMON=( gdm nginx libvirtd docker.socket grafana.service )
+
+
+DISTRO_DAEMON=( nginx libvirtd docker.socket grafana.service )
 DISTRO_GLOBAL=( gcr-ssh-agent.socket )
 
 DAEMON_SYSTEM=( sshd dnsmasq firewalld update.timer NetworkManager systemd-timesyncd.service )

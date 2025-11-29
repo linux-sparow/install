@@ -47,6 +47,18 @@ for dysg in "${DISTRO_GLOBAL[@]}"; do
   	systemctl enable --global "$dysg"
 done
 
+
+for dektop_daemon in "${DESKTOP_DAEMON[@]}"; do
+  	systemctl enable "$dektop_daemon"
+done
+
+for desktop_global in "${DESKTOP_GLOBAL[@]}"; do
+  	systemctl enable --global "$desktop_global"
+done
+
+
+
+
 systemctl disable NetworkManager-wait-online.service
 
 ##
