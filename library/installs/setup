@@ -73,13 +73,13 @@ if [[ -e "$appdir/distros/packer" ]]; then
 fi 
 
 
-echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/post/packer &&
-echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
-echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
+echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/packer &&
+echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/packer &&
+echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
 
 
 ## LOAD PRESETS
-source $appdir/config/define/post/packer &&
+source $appdir/config/define/packer &&
 if [[ $MULTILIBS32 == "true" ]]; then
     echo "[multilib]" >> /etc/pacman.conf &&
     echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
