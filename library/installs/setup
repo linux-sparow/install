@@ -31,8 +31,8 @@ if [[ -e "$appdir/config/profile" ]]; then
     cat "$appdir/config/profile" > $appdir/config/define/packer
 fi 
 
-if [[ -e "$appdir/library/installs/distros/$1/preset" ]]; then
-    cat $appdir/library/installs/distros/$1/preset >> $appdir/config/define/packer &&
+if [[ -e "$appdir/library/installs/distros/preset" ]]; then
+    cat $appdir/library/installs/distros/preset >> $appdir/config/define/packer &&
     source $appdir/config/define/packer
 fi 
 
