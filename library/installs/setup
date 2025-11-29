@@ -60,6 +60,18 @@ if [[ -e "$appdir/library/installs/netdev/$DISTRO_NETS/preset" ]]; then
     source $appdir/library/installs/netdev/$DISTRO_NETS/preset
 fi
 
+if [[ -e "$appdir/library/installs/docust/$DISTRO_DOCS/preset" ]]; then
+    source $appdir/library/installs/docust/$DISTRO_DOCS/preset
+fi
+
+if [[ -e "$appdir/library/installs/webap/$DISTRO_WORK/preset" ]]; then
+    source $appdir/library/installs/webap/$DISTRO_WORK/preset
+fi
+
+if [[ -e "$appdir/library/installs/webap/$DISTRO_WAPP/preset" ]]; then
+    source $appdir/library/installs/webap/$DISTRO_WAPP/preset
+fi
+
 if [[ -e "$appdir/library/installs/ucoder/preset" ]]; then
     source $appdir/library/installs/ucoder/preset
 fi

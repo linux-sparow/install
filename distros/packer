@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PACKAGE="${PACKAGE} flatpak firefox fuse btop evolution keepassxc virt-manager libvirt qemu-desktop podman podman-desktop docker nginx code hugo go apparmor lvm2 testdisk btrfs-progs xfsprogs ntfs-3g dosfstools ethtool rsync grsync grafana "
-RDAEMON="${RDAEMON} nginx libvirtd docker.socket grafana.service "
+PACKAGE="${PACKAGE} btop keepassxc virt-manager libvirt qemu-desktop podman podman-desktop docker code apparmor lvm2 testdisk btrfs-progs xfsprogs ntfs-3g dosfstools ethtool rsync grsync grafana "
+RDAEMON="${RDAEMON} libvirtd docker.socket grafana.service "
 GDAEMON="${GDAEMON}"
 
 
