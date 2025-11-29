@@ -33,6 +33,7 @@ rm /etc/mkinitcpio.conf &&
 rm -fr /etc/mkinitcpio.conf.d/ &&
 
 
+
 ##
 ## KERNELS
 if [[ $DISTRO_KERN == "lqx" ]]; then
