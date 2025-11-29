@@ -77,7 +77,10 @@ echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/packer &&
 echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
 
+nvim  $appdir/config/define/packer
 
+
+exit
 ## LOAD PRESETS
 source $appdir/config/define/packer &&
 if [[ $MULTILIBS32 == "true" ]]; then
