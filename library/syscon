@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /post/profile
+source /post/packer
 
 
 #HOSTNAME
