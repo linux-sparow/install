@@ -41,3 +41,4 @@ DISTRO_GLOBAL=()
 DISTRO_DESK="gnome"
 DISTRO_AUDI="pipe"
 DISTRO_KERN="zen"
+DISTRO_SYST="public"

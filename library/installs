@@ -20,16 +20,17 @@ cat $appdir/config/profile >> $appdir/config/packer
 
 
 ## DISTRO PRESET
-if [[ ! -e "$appdir/config/preset" ]]; then
+if [[ -e "$appdir/config/preset" ]]; then
     cat $appdir/config/preset >> $appdir/config/packer
+else
+    echo "Error : Custom distro config is empty"
 fi
 
 
 ## DISTRO SYSTEM
-if [[ ! -e "$appdir/library/system/sys" ]]; then
-    cat $appdir/library/system/sys >> $appdir/config/packer
+if [[ ! -z $DISTRO_SYST ]]; then
+    cat $appdir/library/system/$DISTRO_SYST/preset >> $appdir/config/packer
 fi
-
 
 ## DISTRO DEKSTOP
 if [[ ! -z $DISTRO_DESK ]]; then
@@ -39,7 +40,7 @@ fi
 
 ## DISTRO KERNEL
 if [[ ! -z $DISTRO_KERN ]]; then
-    cat $appdir/library/system/$DISTRO_KERN/preset >> $appdir/config/packer
+    cat $appdir/library/kernel/$DISTRO_KERN/preset >> $appdir/config/packer
 fi
 
 
