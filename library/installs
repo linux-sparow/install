@@ -60,9 +60,6 @@ echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 
-exit
-
-
 ## LOAD PRESETS
 source $appdir/config/define/post/packer
 
@@ -117,14 +114,9 @@ if [[ ! -z $(lspci | grep -i --color '3d\|RADEON') ]];then
 fi
 
 
-# DISCONFIG
-cp -fr $appdir/config /mnt/post &&
-cp -fr $appdir/config/define/* /mnt &&
-cp -fr $appdir/library/syscon   /mnt/post/ &&
-
-
 # CONFIGURE
 genfstab -U /mnt > /mnt/etc/fstab &&
+cp -fr $appdir/config/define/* /mnt &&
 arch-chroot /mnt /bin/bash /post/syscon &&
 
 
