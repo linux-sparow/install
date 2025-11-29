@@ -3,13 +3,19 @@
 ## ENVIRONTMENT
 appdir=/install
 source $appdir/config/preset
-
+source $appdir/config/preset
 
 ## CLEANSING
 if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then 
     umount -R /mnt
 fi
 echo '' >  $appdir/config/packer
+
+
+## DISTRO PRESET
+if [[ ! -e "$appdir/config/preset" ]]; then
+    cat $appdir/config/preset >> $appdir/config/packer
+fi
 
 
 ## USER PROFILE
@@ -37,15 +43,9 @@ if [[ ! -z $DISTRO_AUDI ]]; then
 fi
 
 
-## DISTRO BASIC
+## DISTRO SYSTEM
 if [[ ! -e "$appdir/library/system/sys" ]]; then
     cat $appdir/library/system/sys >> $appdir/config/packer
-fi
-
-
-## DISTRO BASIC
-if [[ ! -e "$appdir/config/preset" ]]; then
-    cat $appdir/config/preset >> $appdir/config/packer
 fi
 
 
