@@ -34,8 +34,14 @@ rm -fr /etc/mkinitcpio.conf.d/ &&
 
 
 ##
-## SERVICE
+## KERNELS
+if [[ $DISTRO_KERN == "lqx" ]]; then
+    curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash &&
+fi
 
+
+##
+## SERVICE
 for system_daemon in "${RDAEMONS[@]}"; do
     systemctl enable "$system_daemon"
 done
