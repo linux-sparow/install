@@ -1,3 +1,4 @@
+#!/bin/bash
 
 DISTRO_NAME="Sparow"
 DISTRO_UNIQ="sparow"
@@ -36,10 +37,11 @@ DISTRO_PACK="
     grsync
     grafana"
 
-
 DISTRO_DAEMON=( nginx libvirtd docker.socket grafana.service dnsmasq NetworkManager )
 DISTRO_GLOBAL=()
+
 DISTRO_DESK="gnome"
 DISTRO_AUDI="pipe"
 DISTRO_KERN="zen"
 DISTRO_SYST="public"
+

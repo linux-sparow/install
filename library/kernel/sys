@@ -1,18 +1,1 @@
-SYSTEM_PACKAGE="base 
-    base-devel
-    linux-firmware 
-    sof-firmware
-    openssh
-    mkinitcpio 
-    mesa
-    ttf-droid 
-    kitty-terminfo 
-    bash-completion 
-    git 
-    wget 
-	aria2 
-    unzip 
-    neovim"
-
-SYSTEM_DAEMON=( sshd firewalld update.timer  systemd-timesyncd.service )
-SYSTEM_GLOBAL=()
+#!/bin/bash
