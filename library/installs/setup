@@ -34,7 +34,7 @@ fi
 if [[ -e "$appdir/distros/preset" ]]; then
     cat $appdir/distros/preset >> $appdir/config/define/packer &&
     source $appdir/config/define/packer
-fi 
+fi
 
 if [[ -e "$appdir/library/installs/kernel/$DISTRO_KERN/preset" ]]; then
     source $appdir/library/installs/kernel/$DISTRO_KERN/preset
@@ -77,10 +77,12 @@ echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/packer &&
 echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
 
-nano  $appdir/config/define/packer
+
+## DEBUG ENVIRONTMENT
+#nano $appdir/config/define/packer
+#exit
 
 
-exit
 ## LOAD PRESETS
 source $appdir/config/define/packer &&
 if [[ $MULTILIBS32 == "true" ]]; then
