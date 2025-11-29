@@ -7,12 +7,12 @@ if [[ -z $1 ]]; then
 fi
 
 if [[ $1 == "--install" ]];then
-    /bin/bash /install/library/installs --purge &&
+    /bin/bash /install/library/installs/init --purge &&
     exit
 fi
 
 if [[ $1 == "--reset" ]];then
-    /bin/bash /install/library/installs &&
+    /bin/bash /install/library/installs/init &&
     exit
 fi
 

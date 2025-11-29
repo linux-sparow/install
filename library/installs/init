@@ -27,36 +27,36 @@ if [[ -e "$appdir/config/preset" ]]; then
     source $appdir/config/preset 
 fi 
 
-if [[ -e "$appdir/library/kernel/$DISTRO_KERN/preset" ]]; then
-    source $appdir/library/kernel/$DISTRO_KERN/preset
+if [[ -e "$appdir/library/installs/kernel/$DISTRO_KERN/preset" ]]; then
+    source $appdir/library/installs/kernel/$DISTRO_KERN/preset
 fi
 
-if [[ -e "$appdir/library/system/$DISTRO_SYST/preset" ]]; then
-    source $appdir/library/system/$DISTRO_SYST/preset
+if [[ -e "$appdir/library/installs/system/$DISTRO_SYST/preset" ]]; then
+    source $appdir/library/installs/system/$DISTRO_SYST/preset
 fi
 
-if [[ -e "$appdir/library/booter/$DISTRO_BOOT/preset" ]]; then
-    source $appdir/library/booter/$DISTRO_BOOT/preset
+if [[ -e "$appdir/library/installs/booter/$DISTRO_BOOT/preset" ]]; then
+    source $appdir/library/installs/booter/$DISTRO_BOOT/preset
 fi
 
-if [[ -e "$appdir/library/deskto/$DISTRO_DESK/preset" ]]; then
-    source $appdir/library/deskto/$DISTRO_DESK/preset
+if [[ -e "$appdir/library/installs/deskto/$DISTRO_DESK/preset" ]]; then
+    source $appdir/library/installs/deskto/$DISTRO_DESK/preset
 fi
 
-if [[ -e "$appdir/library/audios/$DISTRO_AUDI/preset" ]]; then
-    source $appdir/library/audios/$DISTRO_AUDI/preset
+if [[ -e "$appdir/library/installs/audios/$DISTRO_AUDI/preset" ]]; then
+    source $appdir/library/installs/audios/$DISTRO_AUDI/preset
 fi
 
-if [[ -e "$appdir/library/netdev/$DISTRO_NETS/preset" ]]; then
-    source $appdir/library/netdev/$DISTRO_NETS/preset
+if [[ -e "$appdir/library/installs/netdev/$DISTRO_NETS/preset" ]]; then
+    source $appdir/library/installs/netdev/$DISTRO_NETS/preset
 fi
 
-if [[ -e "$appdir/library/ucoder/preset" ]]; then
-    source $appdir/library/ucoder/preset
+if [[ -e "$appdir/library/installs/ucoder/preset" ]]; then
+    source $appdir/library/installs/ucoder/preset
 fi
 
-if [[ -e "$appdir/library/graphs/vdcard" ]]; then
-    source $appdir/library/graphs/vdcard
+if [[ -e "$appdir/library/installs/graphs/vdcard" ]]; then
+    source $appdir/library/installs/graphs/vdcard
 fi
 
 if [[ -e "$appdir/config/distros" ]]; then

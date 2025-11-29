@@ -65,6 +65,7 @@ if [[ $DISTRO_NETS == "nmt" ]];then
     systemctl disable NetworkManager-wait-online.service
 fi
 
+
 ##
 ## BINPATH
 chmod +x /usr/xbin/* &&
