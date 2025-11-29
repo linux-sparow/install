@@ -12,17 +12,23 @@ fi
 echo '' >  $appdir/config/packer
 
 
+## USER PROFILE
+if [[ $1 == "--purge" ]]; then
+    nano $appdir/config/profile
+fi
+cat $appdir/config/profile >> $appdir/config/packer
+
+
 ## DISTRO PRESET
 if [[ ! -e "$appdir/config/preset" ]]; then
     cat $appdir/config/preset >> $appdir/config/packer
 fi
 
 
-## USER PROFILE
-if [[ $1 == "--purge" ]]; then
-    nano $appdir/config/profile
+## DISTRO SYSTEM
+if [[ ! -e "$appdir/library/system/sys" ]]; then
+    cat $appdir/library/system/sys >> $appdir/config/packer
 fi
-cat $appdir/config/profile >> $appdir/config/packer
 
 
 ## DISTRO DEKSTOP
@@ -37,16 +43,11 @@ if [[ ! -z $DISTRO_KERN ]]; then
 fi
 
 
-## DISTRO AUDIO
+## DISTRO AUDIOS
 if [[ ! -z $DISTRO_AUDI ]]; then
     cat $appdir/library/audios/$DISTRO_AUDI/preset >> $appdir/config/packer
 fi
 
-
-## DISTRO SYSTEM
-if [[ ! -e "$appdir/library/system/sys" ]]; then
-    cat $appdir/library/system/sys >> $appdir/config/packer
-fi
 
 
 ## LOAD PRESETS
