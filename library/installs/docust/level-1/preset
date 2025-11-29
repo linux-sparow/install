@@ -2,5 +2,3 @@
 
 ## PACKAGE 
 PACKAGE="${PACKAGE} obsidian hugo go"
-
-

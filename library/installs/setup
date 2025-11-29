@@ -64,8 +64,8 @@ if [[ -e "$appdir/library/installs/docust/$DISTRO_DOCS/preset" ]]; then
     source $appdir/library/installs/docust/$DISTRO_DOCS/preset
 fi
 
-if [[ -e "$appdir/library/installs/webap/$DISTRO_WORK/preset" ]]; then
-    source $appdir/library/installs/webap/$DISTRO_WORK/preset
+if [[ -e "$appdir/library/installs/officers/$DISTRO_WORK/preset" ]]; then
+    source $appdir/library/installs/officers/$DISTRO_WORK/preset
 fi
 
 if [[ -e "$appdir/library/installs/webap/$DISTRO_WAPP/preset" ]]; then
