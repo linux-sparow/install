@@ -5,6 +5,16 @@ if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then
     umount -R /mnt
 fi
 
+if [[ ! -d  "$appdir/config/define/post" ]]; then 
+   mkdir -p "$appdir/config/define/post"
+fi
+
+if [[ ! -e  "$appdir/config/define/post/packer" ]]; then 
+   touch "$appdir/config/define/post/packer"
+else
+    echo "" > "$appdir/config/define/post/packer";
+fi
+
 
 
 ## ENVIRONTMENT
@@ -14,7 +24,7 @@ export RDAEMON=""
 export GDAEMON=""
 
 
-if [[ $1 == "--purge" ]]; then
+if [[ $2 == "--purge" ]]; then
     nano $appdir/config/profile
 fi
 
@@ -22,9 +32,9 @@ if [[ -e "$appdir/config/profile" ]]; then
     cat "$appdir/config/profile" > $appdir/config/define/post/packer
 fi 
 
-if [[ -e "$appdir/config/preset" ]]; then
-    cat "$appdir/config/preset" >> $appdir/config/define/post/packer &&
-    source $appdir/config/preset 
+if [[ -e "$appdir/library/installs/distros/$1/preset" ]]; then
+    cat $appdir/library/installs/distros/$1/preset >> $appdir/config/define/post/packer &&
+    source $appdir/config/define/post/packer
 fi 
 
 if [[ -e "$appdir/library/installs/kernel/$DISTRO_KERN/preset" ]]; then
@@ -59,9 +69,10 @@ if [[ -e "$appdir/library/installs/graphs/vdcard" ]]; then
     source $appdir/library/installs/graphs/vdcard
 fi
 
-if [[ -e "$appdir/config/distros" ]]; then
-    source $appdir/config/distros
-fi
+if [[ -e "$appdir/library/installs/distros/$1/packer" ]]; then
+    source $appdir/library/installs/distros/$1/packer
+fi 
+
 
 echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/post/packer &&
 echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
@@ -82,7 +93,7 @@ mount $DISKPROC /mnt &&
 
 
 ## BOOTINGUP
-if [[ $1 == "--purge" ]]; then
+if [[ $2 == "--purge" ]]; then
     mkfs.vfat -F32 -S 4096 -n BOOT $DISKBOOT
 fi
 mkdir -p /mnt/boot && 
