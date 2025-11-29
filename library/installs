@@ -54,7 +54,7 @@ fi
 ## LOAD PRESETS
 source $appdir/config/packer
 cat $appdir/config/packer
-
+exit
 
 
 ## SYSPARTED
