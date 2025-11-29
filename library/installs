@@ -64,12 +64,12 @@ mount $DISKDATA /mnt/home &&
 
 # PROCESSOR
 procieidven=$(grep "vendor_id" /proc/cpuinfo | head -n 1 | awk '{print $3}')
-packagelist="$KERNEL_PACKAGE $SYSTEM_PACKAGE $AUDIO_PACKAGE $DESKTOP_PACKAGE $DISTRO_PACKAGE"
+
 
 if [[ "$procieidven" == "GenuineIntel" ]]; then
-    pacstrap /mnt intel-ucode $packagelist
+    pacstrap /mnt intel-ucode $KERNEL_PACKAGE $SYSTEM_PACKAGE $AUDIO_PACKAGE $DESKTOP_PACKAGE $DISTRO_PACKAGE
 elif [[ "$procieidven" == "AuthenticAMD" ]]; then
-    pacstrap /mnt amd-ucode $packagelist
+    pacstrap /mnt amd-ucode $KERNEL_PACKAGE $SYSTEM_PACKAGE $AUDIO_PACKAGE $DESKTOP_PACKAGE $DISTRO_PACKAGE
 fi
 
 
