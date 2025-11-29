@@ -14,11 +14,11 @@ export GDAEMON=""
 
 
 if [[ ! -d  "$appdir/config/define" ]]; then 
-   mkdir -p "$appdir/config/define"
+    mkdir -p "$appdir/config/define"
 fi
 
 if [[ ! -e "$appdir/config/define/packer" ]]; then 
-   touch "$appdir/config/define/packer"
+    touch "$appdir/config/define/packer"
 else
     echo "" > "$appdir/config/define/packer";
 fi
@@ -69,7 +69,7 @@ if [[ -e "$appdir/library/installs/graphs/vdcard" ]]; then
 fi
 
 if [[ -e "$appdir/distros/packer" ]]; then
-    source $appdir/distrospacker
+    source $appdir/distros/packer
 fi 
 
 
