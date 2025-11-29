@@ -10,15 +10,15 @@ if [[ $1 == "--purge" ]]; then
     nano $appdir/config/profile
 fi
 
-if [[ -z $DISTRO_DESK ]]; then
+if [[ ! -z $DISTRO_DESK ]]; then
     cat $appdir/library/deskto/$DISTRO_DESK/preset >> $appdir/config/profile
 fi
 
-if [[ -z $DISTRO_KERN ]]; then
+if [[ ! -z $DISTRO_KERN ]]; then
     cat $appdir/library/kernel/$DISTRO_KERN/preset >> $appdir/config/profile
 fi
 
-if [[ -z $DISTRO_AUDI ]]; then
+if [[ ! -z $DISTRO_AUDI ]]; then
     cat $appdir/library/audios/$DISTRO_AUDI/preset >> $appdir/config/profile
 fi
 
@@ -32,7 +32,8 @@ fi
 
 source $appdir/config/profile
 
-
+cat $appdir/config/profile
+exit
 
 ## CLEANSING
 if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then 
