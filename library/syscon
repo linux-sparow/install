@@ -31,29 +31,30 @@ rm -fr /etc/mkinitcpio.conf.d/ &&
 ##
 ## SERVICE
 
-for sysd in "${DAEMON_SYSTEM[@]}"; do
+for dist_daemon in "${DISTRO_DAEMON[@]}"; do
     systemctl enable "$sysd"
 done
 
-for sysg in "${GLOBAL_SYSTEM[@]}"; do
+for dist_global in "${DISTRO_GLOBAL[@]}"; do
   	systemctl enable --global "$sysg"
 done
 
-for dysd in "${DISTRO_DAEMON[@]}"; do
-  	systemctl enable "$dysd"
+
+for syst_daemon in "${SYSTEM_DAEMON[@]}"; do
+  	systemctl enable "$syst_daemon"
 done
 
-for dysg in "${DISTRO_GLOBAL[@]}"; do
-  	systemctl enable --global "$dysg"
+for syst_global in "${SYSTEM_GLOBAL[@]}"; do
+  	systemctl enable --global "$syst_global"
 done
 
 
-for dektop_daemon in "${DESKTOP_DAEMON[@]}"; do
-  	systemctl enable "$dektop_daemon"
+for desk_daemon in "${DESKTOP_DAEMON[@]}"; do
+  	systemctl enable "$desk_daemon"
 done
 
-for desktop_global in "${DESKTOP_GLOBAL[@]}"; do
-  	systemctl enable --global "$desktop_global"
+for desk_global in "${DESKTOP_GLOBAL[@]}"; do
+  	systemctl enable --global "$desk_global"
 done
 
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+AUDIO_PACKAGE="jack2 
+    pipewire 
+    wireplumber 
+    pipewire-alsa 
+    pipewire-pulse"
+
+AUDIO_GLOBAL=( pipewire-pulse )

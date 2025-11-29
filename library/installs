@@ -1,6 +1,8 @@
 #!/bin/bash
 
+
 appdir=/install
+source $appdir/config/preset
 
 
 ## CONFIGURE
@@ -8,15 +10,27 @@ if [[ $1 == "--purge" ]]; then
     nano $appdir/config/profile
 fi
 
-
-if [[ $DISTRO_DESKTOP == "gnome" ]]; then
-    source $appdir/library/deskto/gnome/packer
+if [[ -z $DISTRO_DESK ]]; then
+    cat $appdir/library/deskto/$DISTRO_DESK/preset >> $appdir/config/profile
 fi
 
+if [[ -z $DISTRO_KERN ]]; then
+    cat $appdir/library/kernel/$DISTRO_KERN/preset >> $appdir/config/profile
+fi
+
+if [[ -z $DISTRO_AUDI ]]; then
+    cat $appdir/library/audios/$DISTRO_AUDI/preset >> $appdir/config/profile
+fi
+
+if [[ ! -e "$appdir/library/system/sys" ]]; then
+    cat $appdir/library/system/sys >> $appdir/config/profile
+fi
+
+if [[ ! -e "$appdir/config/packer" ]]; then
+    cat $appdir/config/packer >> $appdir/config/profile
+fi
 
 source $appdir/config/profile
-source $appdir/config/packer
-
 
 
 
@@ -52,9 +66,9 @@ mount $DISKDATA /mnt/home &&
 procieidven=$(grep "vendor_id" /proc/cpuinfo | head -n 1 | awk '{print $3}')
 
 if [[ "$procieidven" == "GenuineIntel" ]]; then
-    pacstrap /mnt intel-ucode $DESKTOP_PACKAGE $DISTRO_PACKAGE
+    pacstrap /mnt intel-ucode $KERNEL_PACKAGE $SYSTEM_PACKAGE $AUDIO_PACKAGE $DESKTOP_PACKAGE $DISTRO_PACKAGE
 elif [[ "$procieidven" == "AuthenticAMD" ]]; then
-    pacstrap /mnt amd-ucode $DESKTOP_PACKAGE $DISTRO_PACKAGE
+    pacstrap /mnt amd-ucode $KERNEL_PACKAGE $SYSTEM_PACKAGE $AUDIO_PACKAGE $DESKTOP_PACKAGE $DISTRO_PACKAGE
 fi
 
 
