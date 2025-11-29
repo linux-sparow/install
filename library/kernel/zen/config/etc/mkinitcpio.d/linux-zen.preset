@@ -13,7 +13,7 @@ PRESETS=('default')
 
 #default_config="/etc/mkinitcpio.conf"
 #default_image="/boot/sparow.img"
-default_uki="/boot/efi/linux/sparow.efi"
+#default_uki="/boot/efi/linux/sparow.efi"
 #default_options="--splash /usr/share/systemd/bootctl/sparow.bmp"
 
 
