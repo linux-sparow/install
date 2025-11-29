@@ -1,21 +1,23 @@
 #!/bin/bash
 
+appdir=$(pwd)
+
 if [[ -z $1 ]]; then
-    echo "Error : Sparow command need additional paramater"
+    echo "Error : command need additional paramater"
 fi
 
-
-appdir=/install/scripts
-reldir=$(pwd)
-
-
 if [[ $1 == "--install" ]];then
-    /bin/bash $appdir/library/installs &&
+    /bin/bash /install/library/installs --purge &&
+    exit
+fi
+
+if [[ $1 == "--reset" ]];then
+    /bin/bash /install/library/installs &&
     exit
 fi
 
 if [[ $1 == "--build" ]];then
-   /bin/bash $appdir/library/build &&
+   /bin/bash $appdir/library/builder &&
    exit
 fi
 
@@ -24,20 +26,12 @@ if [[ $1 == "--deploy" ]];then
     exit
 fi
 
-if [[ $1 == "--reset" ]];then
-    /bin/bash $appdir/library/reseter &&
-    exit
-fi
-
 if [[ $1 == "--getapp" ]];then
-    /bin/bash $(pwd)/scripts/library/getpkg $reldir &&
+    /bin/bash $appdir/library/getpkg $appdir &&
     exit
 fi
 
 if [[ $1 == "--update" ]];then
-    echo "pull repository" && git pull && 
-    echo "populating file" && git add . &&
-    echo "commit  changes" && git commit -m "$(date)" &&
-    echo "push to gitrepo" && git push &&
+    /bin/bash $appdir/library/repoup &&
     exit
 fi
