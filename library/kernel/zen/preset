@@ -1,8 +1,2 @@
-#!/bin/bash
 
-
-KERNEL_PACKAGE="linux-zen
-    scx-scheds
-    wireless-regdb
-    firewalld 
-    iptables-nft"
+KERNEL_PACKAGE="linux-zen scx-scheds wireless-regdb firewalld iptables-nft"
