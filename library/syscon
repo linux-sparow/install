@@ -31,11 +31,11 @@ rm -fr /etc/mkinitcpio.conf.d/ &&
 ## SERVICE
 
 for dist_daemon in "${DISTRO_DAEMON[@]}"; do
-    systemctl enable "$sysd"
+    systemctl enable "$dist_daemon"
 done
 
 for dist_global in "${DISTRO_GLOBAL[@]}"; do
-  	systemctl enable --global "$sysg"
+  	systemctl enable --global "$dist_global"
 done
 
 

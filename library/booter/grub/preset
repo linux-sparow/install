@@ -1,0 +1,2 @@
+
+BOOTER_PACKER="grub efibootmgr os-prober"
