@@ -60,8 +60,9 @@ for global_daemon in "${GDAEMONS[@]}"; do
   	systemctl enable --global "$global_daemon"
 done
 
-
-systemctl disable NetworkManager-wait-online.service
+if [[ $DISTRO_NETS == "nmt" ]];then
+    systemctl disable NetworkManager-wait-online.service
+fi
 
 ##
 ## BINPATH
@@ -76,7 +77,7 @@ mkinitcpio -P &&
 
 
 ## GRUBERS
-echo 'GRUB_DISTRIBUTOR="$DISTRO_NAME"' >> /etc/default/grub &&
+echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> /etc/default/grub &&
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 

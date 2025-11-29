@@ -8,6 +8,6 @@ RDAEMON="${RDAEMON} sshd firewalld systemd-timesyncd.service dnsmasq NetworkMana
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/netdev/public/config" ]]; then
-    cp -fr "$appdir/library/netdev/public/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/netdev/nmt/config" ]]; then
+    cp -fr "$appdir/library/netdev/nmt/config/"* "$appdir/config/define/"
 fi

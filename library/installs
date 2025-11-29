@@ -50,6 +50,10 @@ if [[ -e "$appdir/library/audios/$DISTRO_AUDI/preset" ]]; then
     source $appdir/library/audios/$DISTRO_AUDI/preset
 fi
 
+if [[ -e "$appdir/library/netdev/$DISTRO_NETS/preset" ]]; then
+    source $appdir/library/netdev/$DISTRO_NETS/preset
+fi
+
 if [[ -e "$appdir/library/ucoder/preset" ]]; then
     source $appdir/library/ucoder/preset
 fi
