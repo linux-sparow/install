@@ -36,8 +36,8 @@ if [[ -e "$appdir/distros/preset" ]]; then
     source $appdir/config/define/packer
 fi
 
-if [[ -e "$appdir/library/installs/kernel/$DISTRO_KERN/preset" ]]; then
-    source $appdir/library/installs/kernel/$DISTRO_KERN/preset
+if [[ -e "$appdir/library/installs/kernels/$DISTRO_KERN/preset" ]]; then
+    source $appdir/library/installs/kernels/$DISTRO_KERN/preset
 fi
 
 if [[ -e "$appdir/library/installs/system/$DISTRO_SYST/preset" ]]; then
@@ -72,8 +72,8 @@ if [[ -e "$appdir/library/installs/webap/$DISTRO_WAPP/preset" ]]; then
     source $appdir/library/installs/webap/$DISTRO_WAPP/preset
 fi
 
-if [[ -e "$appdir/library/installs/ucoder/preset" ]]; then
-    source $appdir/library/installs/ucoder/preset
+if [[ -e "$appdir/library/installs/ucodes/preset" ]]; then
+    source $appdir/library/installs/ucodes/preset
 fi
 
 if [[ -e "$appdir/library/installs/graphs/vdcard" ]]; then
