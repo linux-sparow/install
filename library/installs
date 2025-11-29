@@ -1,15 +1,15 @@
 #!/bin/bash
 
+appdir=/install
+
 ## CLEANSING
 if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then 
     umount -R /mnt
 fi
-
 echo '' >  $appdir/config/packer
 
 
 ## CONFIGURE
-appdir=/install
 source $appdir/config/preset
 
 if [[ $1 == "--purge" ]]; then
