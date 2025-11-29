@@ -50,6 +50,14 @@ if [[ -e "$appdir/library/audios/$DISTRO_AUDI/preset" ]]; then
     source $appdir/library/audios/$DISTRO_AUDI/preset
 fi
 
+if [[ -e "$appdir/library/ucoder/preset" ]]; then
+    source $appdir/library/ucoder/preset
+fi
+
+if [[ -e "$appdir/library/graphs/vdcard" ]]; then
+    source $appdir/library/graphs/vdcard
+fi
+
 if [[ -e "$appdir/config/distros" ]]; then
     source $appdir/config/distros
 fi
@@ -62,6 +70,13 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 ## LOAD PRESETS
 source $appdir/config/define/post/packer
+
+
+## MULTILIB
+if [[ $MULTILIBS32 == "true" ]]; then
+    echo "[multilib]" >> /etc/pacman.conf &&
+    echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+fi
 
 
 ## SYSPARTED
@@ -85,32 +100,14 @@ mkdir -p /mnt/home &&
 mount $DISKDATA /mnt/home &&
 
 
-
-# PROCESSOR
-procieidven=$(grep "vendor_id" /proc/cpuinfo | head -n 1 | awk '{print $3}')
-
-
-if [[ "$procieidven" == "GenuineIntel" ]]; then
-    pacstrap /mnt intel-ucode $KERNEL_PACKAGE $SYSTEM_PACKAGE $AUDIO_PACKAGE $DESKTOP_PACKAGE $DISTRO_PACKER
-elif [[ "$procieidven" == "AuthenticAMD" ]]; then
-    pacstrap /mnt amd-ucode $KERNEL_PACKAGE $SYSTEM_PACKAGE $AUDIO_PACKAGE $DESKTOP_PACKAGE $DISTRO_PACKER
-fi
+# SETUPOACKS
+pacstrap /mnt $PACKAGES
 
 
-
-# GRAPHICAL
-graphidven=$(lspci | grep -i --color 'vga\')
-
-if [[ ! -z $(echo $graphidven | grep -i --color 'Intel Corporation') ]];then
-    pacstrap /mnt vulkan-intel
-fi
-
-if [[ ! -z $(lspci | grep -i --color '3d\|NVIDIA') ]];then
-    pacstrap /mnt nvidia-utils
-fi
-
-if [[ ! -z $(lspci | grep -i --color '3d\|RADEON') ]];then
-    pacstrap /mnt vulkan-radeon 
+## MULTILIB
+if [[ $MULTILIBS32 == "true" ]]; then
+    echo "[multilib]" >> /mnt/etc/pacman.conf &&
+    echo "Include = /etc/pacman.d/mirrorlist" >> /mnt/etc/pacman.conf
 fi
 
 
