@@ -8,8 +8,8 @@ fi
 
 
 ## ENVIRONTMENT
-## appdir=/install
-appdir=$(pwd)
+appdir=/install
+
 
 export PACKAGE=""
 export RDAEMON=""
@@ -62,7 +62,6 @@ if [[ -e "$appdir/config/distros" ]]; then
     source $appdir/config/distros
 fi
 
-
 echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/post/packer &&
 echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
@@ -71,8 +70,6 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 ## LOAD PRESETS
 source $appdir/config/define/post/packer
 
-
-## MULTILIB
 if [[ $MULTILIBS32 == "true" ]]; then
     echo "[multilib]" >> /etc/pacman.conf &&
     echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
