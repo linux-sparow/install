@@ -6,6 +6,6 @@ GDAEMON="${GDAEMON}"
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/distros/sparow/config" ]]; then
-    cp -fr "$appdir/library/distros/sparow/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/distros/config" ]]; then
+    cp -fr "$appdir/distros/config/"* "$appdir/config/define/"
 fi

@@ -1,19 +1,19 @@
 #!/bin/bash
 
 appdir=$(pwd)
-distro="sparow"
+
 
 if [[ -z $1 ]]; then
     echo "Error : command need additional paramater"
 fi
 
 if [[ $1 == "--install" ]];then
-    /bin/bash /install/library/installs/setup "$distro" --purge &&
+    /bin/bash /install/library/installs/setup --purge &&
     exit
 fi
 
 if [[ $1 == "--reset" ]];then
-    /bin/bash /install/library/installs/setup $distro &&
+    /bin/bash /install/library/installs/setup &&
     exit
 fi
 
