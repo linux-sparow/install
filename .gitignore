@@ -1,4 +1,4 @@
-distrib/*
-distrib
-packer/*
-packer
+distrib/packers/*
+distrib/packers
+distrib/release/*
+distrib/release
