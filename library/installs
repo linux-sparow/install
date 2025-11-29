@@ -14,7 +14,7 @@ echo '' >  $appdir/config/packer
 
 ## USER PROFILE
 if [[ $1 == "--purge" ]]; then
-    nano $appdir/config/profile &&
+    nano $appdir/config/profile
 fi
 cat $appdir/config/profile >> $appdir/config/packer
 
