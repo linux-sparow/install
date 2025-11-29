@@ -1,60 +1,70 @@
 #!/bin/bash
 
-## ENVIRONTMENT
-appdir=/install
-source $appdir/config/preset
-source $appdir/config/preset
-
 ## CLEANSING
 if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then 
     umount -R /mnt
 fi
-echo '' >  $appdir/config/packer
 
 
-## USER PROFILE
+
+## ENVIRONTMENT
+## appdir=/install
+appdir=$(pwd)
+
+export PACKAGE=""
+export RDAEMON=""
+export GDAEMON=""
+
+
 if [[ $1 == "--purge" ]]; then
-    nano $appdir/config/profile
+    #nano $appdir/config/profile
+    echo "debug"
 fi
-cat $appdir/config/profile >> $appdir/config/packer
 
+if [[ -e "$appdir/config/profile" ]]; then
+    cat "$appdir/config/profile" > $appdir/config/define/post/packer
+fi 
 
-## DISTRO PRESET
 if [[ -e "$appdir/config/preset" ]]; then
-    cat $appdir/config/preset >> $appdir/config/packer
-else
-    echo "Error : Custom distro config is empty"
+    cat "$appdir/config/preset" >> $appdir/config/define/post/packer &&
+    source $appdir/config/preset 
+fi 
+
+if [[ -e "$appdir/library/kernel/$DISTRO_KERN/preset" ]]; then
+    source $appdir/library/kernel/$DISTRO_KERN/preset
+fi
+
+if [[ -e "$appdir/library/system/$DISTRO_SYST/preset" ]]; then
+    source $appdir/library/system/$DISTRO_SYST/preset
+fi
+
+if [[ -e "$appdir/library/kernel/$DISTRO_BOOT/preset" ]]; then
+    source $appdir/library/booter/$DISTRO_BOOT/preset
+fi
+
+if [[ -e "$appdir/library/deskto/$DISTRO_DESK/preset" ]]; then
+    source $appdir/library/deskto/$DISTRO_DESK/preset
+fi
+
+if [[ -e "$appdir/library/audios/$DISTRO_AUDI/preset" ]]; then
+    source $appdir/library/audios/$DISTRO_AUDI/preset
+fi
+
+if [[ -e "$appdir/config/distros" ]]; then
+    source $appdir/config/distros
 fi
 
 
-## DISTRO SYSTEM
-if [[ ! -z $DISTRO_SYST ]]; then
-    cat $appdir/library/system/$DISTRO_SYST/preset >> $appdir/config/packer
-fi
-
-## DISTRO DEKSTOP
-if [[ ! -z $DISTRO_DESK ]]; then
-    cat $appdir/library/deskto/$DISTRO_DESK/preset >> $appdir/config/packer
-fi
+echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/post/packer &&
+echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
+echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 
-## DISTRO KERNEL
-if [[ ! -z $DISTRO_KERN ]]; then
-    cat $appdir/library/kernel/$DISTRO_KERN/preset >> $appdir/config/packer
-fi
-
-
-## DISTRO AUDIOS
-if [[ ! -z $DISTRO_AUDI ]]; then
-    cat $appdir/library/audios/$DISTRO_AUDI/preset >> $appdir/config/packer
-fi
-
+exit
 
 
 ## LOAD PRESETS
-source $appdir/config/packer
-cat $appdir/config/packer
-
+source $appdir/config/define/post/packer
 
 
 ## SYSPARTED
@@ -109,7 +119,7 @@ fi
 
 # DISCONFIG
 cp -fr $appdir/config /mnt/post &&
-cp -fr $appdir/library/define/* /mnt &&
+cp -fr $appdir/config/define/* /mnt &&
 cp -fr $appdir/library/syscon   /mnt/post/ &&
 
 

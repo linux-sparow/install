@@ -1,2 +1,14 @@
+#!/bin/bash 
 
-BOOTER_PACKER="grub efibootmgr os-prober"
+
+## PACKAGE
+PACKAGE="${PACKAGE} grub efibootmgr os-prober"
+
+## DAEMONS
+# RDAEMON="${RDAEMON}"
+
+
+## CONFIGS
+if [[ -d "$appdir/library/booter/grub/config" ]]; then
+    cp -fr "$appdir/library/booter/grub/config/"* "$appdir/config/define/"
+fi

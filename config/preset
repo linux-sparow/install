@@ -1,10 +1,14 @@
-
 DISTRO_NAME="Sparow"
 DISTRO_UNIQ="sparow"
-DISTRO_PACKER="grub efibootmgr os-prober dnsmasq bluez-utils networkmanager flatpak firefox fuse btop evolution keepassxc virt-manager libvirt qemu-desktop podman podman-desktop docker nginx code hugo go apparmor lvm2 testdisk btrfs-progs xfsprogs ntfs-3g dosfstools ethtool rsync grsync grafana"
-DISTRO_DAEMON=( nginx libvirtd docker.socket grafana.service dnsmasq NetworkManager )
-DISTRO_GLOBAL=()
 DISTRO_DESK="gnome"
+PROTOS_DEKS=""
 DISTRO_AUDI="pipe"
+PROTOS_AUDI=""
 DISTRO_KERN="zen"
+PROTOS_KERN=""
+DISTRO_BOOT="grub"
+PROTOS_GRUB=""
 DISTRO_SYST="public"
+PROTOS_SYST=""
+DISTRO_NETS="public"
+PROTOS_NETS="" 

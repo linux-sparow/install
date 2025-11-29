@@ -1,6 +1,6 @@
-NAME="Sparow"
-PRETTY_NAME="Sparow"
-ID=sparow
+NAME="Sparow OS"
+PRETTY_NAME="Sparow OS"
+ID=yuros
 BUILD_ID=rolling
 ANSI_COLOR="38;2;23;147;209"
 HOME_URL="https://sparow.yuros.org/"

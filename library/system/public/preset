@@ -1,4 +1,14 @@
+#!/bin/bash
 
-SYSTEM_PACKAGE="base base-devel linux-firmware sof-firmware openssh mkinitcpio mesa ttf-droid kitty-terminfo bash-completion git wget aria2 unzip neovim"
-SYSTEM_DAEMON=(sshd firewalld update.timer systemd-timesyncd.service )
-SYSTEM_GLOBAL=()
+## PACKAGE 
+PACKAGE="${PACKAGE} base base-devel linux-firmware sof-firmware mkinitcpio mesa ttf-droid kitty-terminfo bash-completion git wget aria2 unzip neovim"
+
+
+## DAEMONS
+RDAEMON="${RDAEMON} update.timer"
+
+
+## CONFIGS
+if [[ -d "$appdir/library/system/public/config" ]]; then
+    cp -fr "$appdir/library/system/public/config/"* "$appdir/config/define/"
+fi

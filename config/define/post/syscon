@@ -18,6 +18,13 @@ timedatectl set-timezone $TIMEZONE &&
 locale-gen &&
 
 
+## USERADD
+useradd -m $USERNAME &&
+usermod -aG wheel $USERNAME &&
+echo "add user password" &&
+passwd $USERNAME &&
+
+
 ##
 ## BOOTUPS
 mkdir -p /boot/{efi,kernel,$DISTRO_UNIQ} &&
@@ -29,33 +36,13 @@ rm -fr /etc/mkinitcpio.conf.d/ &&
 ##
 ## SERVICE
 
-for dist_daemon in "${DISTRO_DAEMON[@]}"; do
-    systemctl enable "$dist_daemon"
+for system_daemon in "${RDAEMONS[@]}"; do
+    systemctl enable "$system_daemon"
 done
 
-for dist_global in "${DISTRO_GLOBAL[@]}"; do
-  	systemctl enable --global "$dist_global"
+for global_daemon in "${GDAEMONS[@]}"; do
+  	systemctl enable --global "$global_daemon"
 done
-
-
-for syst_daemon in "${SYSTEM_DAEMON[@]}"; do
-  	systemctl enable "$syst_daemon"
-done
-
-for syst_global in "${SYSTEM_GLOBAL[@]}"; do
-  	systemctl enable --global "$syst_global"
-done
-
-
-for desk_daemon in "${DESKTOP_DAEMON[@]}"; do
-  	systemctl enable "$desk_daemon"
-done
-
-for desk_global in "${DESKTOP_GLOBAL[@]}"; do
-  	systemctl enable --global "$desk_global"
-done
-
-
 
 
 systemctl disable NetworkManager-wait-online.service
@@ -76,13 +63,6 @@ mkinitcpio -P &&
 echo 'GRUB_DISTRIBUTOR="$DISTRO_NAME"' >> /etc/default/grub &&
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
-
-
-## USERADD
-useradd -m $USERNAME &&
-usermod -aG wheel $USERNAME &&
-echo "add user password" &&
-passwd $USERNAME &&
 
 
 echo "$DISTRO_NAME installation finish, close chroot"

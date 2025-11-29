@@ -1,2 +1,11 @@
+#!/bin/bash
 
-KERNEL_PACKAGE="linux-zen scx-scheds wireless-regdb firewalld iptables-nft"
+## PACKAGE 
+PACKAGE="${PACKAGE}linux-zen scx-scheds wireless-regdb"
+
+
+
+## CONFIGS
+if [[ -d "$appdir/library/kernel/zen/config" ]]; then
+    cp -fr "$appdir/library/kernel/zen/config/"* "$appdir/config/define/"
+fi
