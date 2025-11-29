@@ -38,7 +38,7 @@ if [[ -e "$appdir/library/system/$DISTRO_SYST/preset" ]]; then
     source $appdir/library/system/$DISTRO_SYST/preset
 fi
 
-if [[ -e "$appdir/library/kernel/$DISTRO_BOOT/preset" ]]; then
+if [[ -e "$appdir/library/booter/$DISTRO_BOOT/preset" ]]; then
     source $appdir/library/booter/$DISTRO_BOOT/preset
 fi
 
