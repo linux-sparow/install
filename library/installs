@@ -8,15 +8,14 @@ fi
 echo '' >  $appdir/config/packer
 
 
-
 ## CONFIGURE
 appdir=/install
 source $appdir/config/preset
 
 if [[ $1 == "--purge" ]]; then
     nano $appdir/config/profile &&
-    nano $appdir/config/profile >> $appdir/config/packer
 fi
+cat $appdir/config/profile >> $appdir/config/packer
 
 if [[ ! -z $DISTRO_DESK ]]; then
     cat $appdir/library/deskto/$DISTRO_DESK/preset >> $appdir/config/packer
@@ -39,9 +38,8 @@ if [[ ! -e "$appdir/config/preset" ]]; then
 fi
 
 source $appdir/config/packer
-
 cat $appdir/config/packer
-exit
+
 
 
 
