@@ -9,16 +9,13 @@ fi
 
 ## ENVIRONTMENT
 appdir=/install
-
-
 export PACKAGE=""
 export RDAEMON=""
 export GDAEMON=""
 
 
 if [[ $1 == "--purge" ]]; then
-    #nano $appdir/config/profile
-    echo "debug"
+    nano $appdir/config/profile
 fi
 
 if [[ -e "$appdir/config/profile" ]]; then
