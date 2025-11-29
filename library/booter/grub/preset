@@ -10,5 +10,6 @@ PACKAGE="${PACKAGE} grub efibootmgr os-prober"
 
 ## CONFIGS
 if [[ -d "$appdir/library/booter/grub/config" ]]; then
-    cp -fr "$appdir/library/booter/grub/config/"* "$appdir/config/define/"
+    cp -fr "$appdir/library/booter/grub/config/"* "$appdir/config/define/" &&
+    echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> "$appdir/config/define/etc/default/grub"
 fi
