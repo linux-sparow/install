@@ -1,3 +1,5 @@
+#!/bin/bash
+
 SYSTEM_PACKAGE="base 
     base-devel
     linux-firmware 
