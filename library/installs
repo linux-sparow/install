@@ -1,6 +1,9 @@
 #!/bin/bash
 
+## ENVIRONTMENT
 appdir=/install
+source $appdir/config/preset
+
 
 ## CLEANSING
 if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then 
@@ -9,38 +12,46 @@ fi
 echo '' >  $appdir/config/packer
 
 
-## CONFIGURE
-source $appdir/config/preset
-
+## USER PROFILE
 if [[ $1 == "--purge" ]]; then
     nano $appdir/config/profile &&
 fi
 cat $appdir/config/profile >> $appdir/config/packer
 
+
+## DISTRO DEKSTOP
 if [[ ! -z $DISTRO_DESK ]]; then
     cat $appdir/library/deskto/$DISTRO_DESK/preset >> $appdir/config/packer
 fi
 
+
+## DISTRO KERNEL
 if [[ ! -z $DISTRO_KERN ]]; then
     cat $appdir/library/system/$DISTRO_KERN/preset >> $appdir/config/packer
 fi
 
+
+## DISTRO AUDIO
 if [[ ! -z $DISTRO_AUDI ]]; then
     cat $appdir/library/audios/$DISTRO_AUDI/preset >> $appdir/config/packer
 fi
 
+
+## DISTRO BASIC
 if [[ ! -e "$appdir/library/system/sys" ]]; then
     cat $appdir/library/system/sys >> $appdir/config/packer
 fi
 
+
+## DISTRO BASIC
 if [[ ! -e "$appdir/config/preset" ]]; then
     cat $appdir/config/preset >> $appdir/config/packer
 fi
 
+
+## LOAD PRESETS
 source $appdir/config/packer
 cat $appdir/config/packer
-
-
 
 
 
