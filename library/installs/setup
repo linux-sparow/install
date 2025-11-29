@@ -77,7 +77,7 @@ echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/packer &&
 echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
 
-nvim  $appdir/config/define/packer
+nano  $appdir/config/define/packer
 
 
 exit
