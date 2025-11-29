@@ -5,17 +5,6 @@ if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then
     umount -R /mnt
 fi
 
-if [[ ! -d  "$appdir/config/define" ]]; then 
-   mkdir -p "$appdir/config/define"
-fi
-
-if [[ ! -e "$appdir/config/define/packer" ]]; then 
-   touch "$appdir/config/define/packer"
-else
-    echo "" > "$appdir/config/define/post/packer";
-fi
-
-
 
 ## ENVIRONTMENT
 appdir=/install
@@ -23,6 +12,16 @@ export PACKAGE=""
 export RDAEMON=""
 export GDAEMON=""
 
+
+if [[ ! -d  "$appdir/config/define" ]]; then 
+   mkdir -p "$appdir/config/define"
+fi
+
+if [[ ! -e "$appdir/config/define/packer" ]]; then 
+   touch "$appdir/config/define/packer"
+else
+    echo "" > "$appdir/config/define/packer";
+fi
 
 if [[ $1 == "--purge" ]]; then
     nano $appdir/config/profile
