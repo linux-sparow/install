@@ -30,7 +30,14 @@ fi
 echo "#!/bin/bash" > "$appdir/config/define/post/packer";
 
 if [[ $1 == "--purge" ]]; then
-    nano $appdir/config/profile
+
+    if [[ $2 == "--testing" ]]; then
+        nano $appdir/config/testing
+    else
+        source "$appdir/library/installs/dialogs/terminal" &&
+        start_installer
+    fi
+   
 fi
 
 if [[ -e "$appdir/config/profile" ]]; then

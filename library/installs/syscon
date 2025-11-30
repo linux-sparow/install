@@ -79,9 +79,7 @@ fi
 ## USERADD
 useradd -m $USERNAME &&
 usermod -aG wheel $USERNAME &&
-echo "add user password" &&
-passwd $USERNAME &&
-
+echo "$USERNAME:$PASSWORD" | chpasswd
 
 
 echo "$DISTRO_NAME installation finish, close chroot"
