@@ -6,13 +6,6 @@ if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then
 fi
 
 
-## LOADLIBRARY
-source "$appdir/library/helper/cryptos"
-source "$appdir/library/install/dialogs/getsetup"
-source "$appdir/library/install/dialogs/getreset"
-
-
-
 ## ENVIRONTMENT
 appdir=/install
 export PACKAGE=""
@@ -24,6 +17,12 @@ export KERNSEC=""
 export KERNPRF=""
 export KERNNET=""
 export KERNMSC="rw quiet"
+
+
+## LOADLIBRARY
+source "$appdir/library/helper/cryptos"
+source "$appdir/library/install/dialogs/getsetup"
+source "$appdir/library/install/dialogs/getreset"
 
 
 ## PREPARATION
