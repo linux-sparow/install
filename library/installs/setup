@@ -72,6 +72,10 @@ if [[ -e "$appdir/library/installs/webap/$DISTRO_WAPP/preset" ]]; then
     source $appdir/library/installs/webap/$DISTRO_WAPP/preset
 fi
 
+if [[ -e "$appdir/library/installs/secure/$DISTRO_SECS/preset" ]]; then
+    source $appdir/library/installs/secure/$DISTRO_SECS/preset
+fi
+
 if [[ -e "$appdir/library/installs/ucodes/preset" ]]; then
     source $appdir/library/installs/ucodes/preset
 fi

@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ## PACKAGE
-PACKAGE="${PACKAGE} dnsmasq bluez-utils networkmanager openssh firewalld iptables-nft"
+PACKAGE="${PACKAGE} dnsmasq bluez-utils networkmanager openssh"
 
 ## DAEMONS
-RDAEMON="${RDAEMON} sshd firewalld systemd-timesyncd.service dnsmasq NetworkManager"
+RDAEMON="${RDAEMON} sshd systemd-timesyncd.service dnsmasq NetworkManager"
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/netdev/nmt/config" ]]; then
-    cp -fr "$appdir/library/netdev/nmt/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/installs/netdev/nmt/config" ]]; then
+    cp -fr "$appdir/library/installs/netdev/nmt/config/"* "$appdir/config/define/"
 fi

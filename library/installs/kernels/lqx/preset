@@ -1,1 +1,7 @@
 #!/bin/bash
+
+
+## CONFIGS
+if [[ -d "$appdir/library/installs/kernels/lqx/config" ]]; then
+    cp -fr "$appdir/library/installs/kernels/lqx/config/"* "$appdir/config/define/"
+fi

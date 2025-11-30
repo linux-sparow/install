@@ -9,6 +9,6 @@ RDAEMON="${RDAEMON}"
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/webap/level-0/config" ]]; then
-    cp -fr "$appdir/library/webap/level-0/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/installs/webap/level-0/config" ]]; then
+    cp -fr "$appdir/library/installs/webap/level-0/config/"* "$appdir/config/define/"
 fi

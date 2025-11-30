@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGE="${PACKAGE} btop keepassxc virt-manager libvirt qemu-desktop podman podman-desktop docker code apparmor lvm2 testdisk btrfs-progs xfsprogs ntfs-3g dosfstools ethtool rsync grsync grafana "
+PACKAGE="${PACKAGE} virt-manager libvirt qemu-desktop podman podman-desktop docker code apparmor lvm2 testdisk btrfs-progs xfsprogs ntfs-3g dosfstools ethtool rsync grsync grafana "
 RDAEMON="${RDAEMON} libvirtd docker.socket grafana.service "
 GDAEMON="${GDAEMON}"
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## PACKAGE 
-PACKAGE="${PACKAGE} base base-devel linux-firmware sof-firmware mkinitcpio mesa ttf-droid kitty-terminfo bash-completion git wget aria2 unzip neovim flatpak fuse"
+PACKAGE="${PACKAGE} base base-devel linux-firmware sof-firmware mkinitcpio mesa ttf-droid kitty-terminfo bash-completion git wget aria2 unzip neovim flatpak fuse btop"
 
 
 ## DAEMONS
@@ -9,6 +9,6 @@ RDAEMON="${RDAEMON} update.timer"
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/system/level-0/config" ]]; then
-    cp -fr "$appdir/library/system/level-0/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/installs/system/level-0/config" ]]; then
+    cp -fr "$appdir/library/installs/system/level-0/config/"* "$appdir/config/define/"
 fi

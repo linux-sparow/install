@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ## PACKAGE 
-PACKAGE="${PACKAGE}linux-zen scx-scheds wireless-regdb"
+PACKAGE="${PACKAGE}linux-lts scx-scheds wireless-regdb"
 
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/kernel/zen/config" ]]; then
-    cp -fr "$appdir/library/kernel/zen/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/installs/kernels/lts/config" ]]; then
+    cp -fr "$appdir/library/installs/kernels/lts/config/"* "$appdir/config/define/"
 fi
