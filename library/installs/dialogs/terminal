@@ -127,6 +127,7 @@ function writing_profile() {
 
 
 function start_installer() {
+    clear &&
     select_bootdisk &&
     select_rootdisk &&
     select_datadisk &&
