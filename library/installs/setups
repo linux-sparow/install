@@ -151,7 +151,7 @@ fi
 # CONFIGURE
 genfstab -U /mnt > /mnt/etc/fstab &&
 cp -fr $appdir/config/define/* /mnt/ &&
-arch-chroot /mnt /bin/bash /post/syscon &&
+arch-chroot /mnt /bin/bash /post/syscon
 
 
 
