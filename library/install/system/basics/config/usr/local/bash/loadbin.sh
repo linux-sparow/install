@@ -3,7 +3,7 @@
 ## copyright@almuhdilkarim 2025
 
 # config source
-source /etc/config
+source /etc/sysoption
 
 
 # Load bash themes
