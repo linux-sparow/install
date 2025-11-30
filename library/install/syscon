@@ -135,6 +135,4 @@ fi
 
 
 ## FINISHING
-clear &&
-echo "$DISTRO_NAME Linux installation finish, close chroot" &&
-rm -fr /mnt/post 
+rm -fr /mnt/post && clear && echo "$DISTRO_NAME Linux installation finish, close chroot"
