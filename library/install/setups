@@ -33,7 +33,7 @@ echo "#!/bin/bash" > "$appdir/config/define/post/packer";
 
 ## POPULATINGS
 if [[ $1 == "--purge" ]]; then
-    source "$appdir/library/installs/dialogs/terminal" &&
+    source "$appdir/library/install/dialogs/terminal" &&
     start_installer
 fi
 
@@ -50,60 +50,60 @@ if [[ -e "$appdir/distros/preset" ]]; then
     source $appdir/config/define/post/packer
 fi
 
-if [[ -e "$appdir/library/installs/kernels/$DISTRO_KERN/preset" ]]; then
-    source $appdir/library/installs/kernels/$DISTRO_KERN/preset
+if [[ -e "$appdir/library/install/kernels/$DISTRO_KERN/preset" ]]; then
+    source $appdir/library/install/kernels/$DISTRO_KERN/preset
 fi
 
-if [[ -e "$appdir/library/installs/system/$DISTRO_SYST/preset" ]]; then
-    source $appdir/library/installs/system/basisc/preset &&
-    source $appdir/library/installs/system/$DISTRO_SYST/preset
+if [[ -e "$appdir/library/install/system/$DISTRO_SYST/preset" ]]; then
+    source $appdir/library/install/system/basisc/preset &&
+    source $appdir/library/install/system/$DISTRO_SYST/preset
 else
-    source $appdir/library/installs/system/basisc/preset
+    source $appdir/library/install/system/basisc/preset
 fi
 
-if [[ -e "$appdir/library/installs/booter/$DISTRO_BOOT/preset" ]]; then
-    source $appdir/library/installs/booter/$DISTRO_BOOT/preset
+if [[ -e "$appdir/library/install/booter/$DISTRO_BOOT/preset" ]]; then
+    source $appdir/library/install/booter/$DISTRO_BOOT/preset
 fi
 
-if [[ -e "$appdir/library/installs/deskto/$DISTRO_DESK/preset" ]]; then
-    source $appdir/library/installs/deskto/$DISTRO_DESK/preset
+if [[ -e "$appdir/library/install/deskto/$DISTRO_DESK/preset" ]]; then
+    source $appdir/library/install/deskto/$DISTRO_DESK/preset
 fi
 
-if [[ -e "$appdir/library/installs/audios/$DISTRO_AUDI/preset" ]]; then
-    source $appdir/library/installs/audios/$DISTRO_AUDI/preset
+if [[ -e "$appdir/library/install/audios/$DISTRO_AUDI/preset" ]]; then
+    source $appdir/library/install/audios/$DISTRO_AUDI/preset
 fi
 
-if [[ -e "$appdir/library/installs/netdev/$DISTRO_NETS/preset" ]]; then
-    source $appdir/library/installs/netdev/$DISTRO_NETS/preset
+if [[ -e "$appdir/library/install/netdev/$DISTRO_NETS/preset" ]]; then
+    source $appdir/library/install/netdev/$DISTRO_NETS/preset
 fi
 
-if [[ -e "$appdir/library/installs/docust/$DISTRO_DOCS/preset" ]]; then
-    source $appdir/library/installs/docust/$DISTRO_DOCS/preset
+if [[ -e "$appdir/library/install/docust/$DISTRO_DOCS/preset" ]]; then
+    source $appdir/library/install/docust/$DISTRO_DOCS/preset
 fi
 
-if [[ -e "$appdir/library/installs/officers/$DISTRO_WORK/preset" ]]; then
-    source $appdir/library/installs/officers/$DISTRO_WORK/preset
+if [[ -e "$appdir/library/install/officers/$DISTRO_WORK/preset" ]]; then
+    source $appdir/library/install/officers/$DISTRO_WORK/preset
 fi
 
-if [[ -e "$appdir/library/installs/webap/$DISTRO_WAPP/preset" ]]; then
-    source $appdir/library/installs/webap/$DISTRO_WAPP/preset
+if [[ -e "$appdir/library/install/webap/$DISTRO_WAPP/preset" ]]; then
+    source $appdir/library/install/webap/$DISTRO_WAPP/preset
 fi
 
-if [[ -e "$appdir/library/installs/secure/$DISTRO_SECS/preset" ]]; then
-    source $appdir/library/installs/secure/$DISTRO_SECS/preset
+if [[ -e "$appdir/library/install/secure/$DISTRO_SECS/preset" ]]; then
+    source $appdir/library/install/secure/$DISTRO_SECS/preset
 fi
 
-if [[ -e "$appdir/library/installs/ucodes/preset" ]]; then
-    source $appdir/library/installs/ucodes/preset
+if [[ -e "$appdir/library/install/ucodes/preset" ]]; then
+    source $appdir/library/install/ucodes/preset
 fi
 
-if [[ -e "$appdir/library/installs/graphs/vdcard" ]]; then
-    source $appdir/library/installs/graphs/vdcard
+if [[ -e "$appdir/library/install/graphs/vdcard" ]]; then
+    source $appdir/library/install/graphs/vdcard
 fi
 
 
 if [[ -e "$appdir/distros/packer" ]]; then
-    cp -fr $appdir/library/installs/syscon $appdir/config/define/post/ &&
+    cp -fr $appdir/library/install/syscon $appdir/config/define/post/ &&
     source $appdir/distros/packer
 fi 
 
