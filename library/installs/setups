@@ -30,15 +30,12 @@ fi
 echo "#!/bin/bash" > "$appdir/config/define/post/packer";
 
 if [[ $1 == "--purge" ]]; then
-
-    if [[ $2 == "--testing" ]]; then
-        cat $appdir/config/testing > $appdir/config/define/post/packer
-    else
-        source "$appdir/library/installs/dialogs/terminal" &&
-        start_installer
-    fi
-   
+    source "$appdir/library/installs/dialogs/terminal" &&
+    start_installer
+elif [[ $1 == "--testing" ]];then
+    cat $appdir/config/testing > $appdir/config/define/post/packer
 fi
+
 
 if [[ -e "$appdir/config/profile" ]]; then
     cat "$appdir/config/profile" > $appdir/config/define/post/packer
@@ -129,7 +126,7 @@ mount $DISKPROC /mnt &&
 
 
 ## BOOTINGUP
-if [[ $1 == "--purge" ]]; then
+if [[ $1 == "--purge" ]]||[[ $1 == "--testing"  ]]; then
     mkfs.vfat -F32 -S 4096 -n BOOT $DISKBOOT
 fi
 mkdir -p /mnt/boot && 
@@ -137,7 +134,7 @@ mount -o uid=0,gid=0,dmask=007,fmask=007 $DISKBOOT /mnt/boot/ &&
 
 
 ## USERDATUM
-if [[ $1 == "--purge" ]]; then
+if [[ $1 == "--purge" ]]||[[ $1 == "--testing"  ]]; then
     mkfs.ext4 -F -q -b 4096 $DISKDATA
 fi
 mkdir -p /mnt/home &&

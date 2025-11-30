@@ -15,7 +15,13 @@ fi
 
 
 if [[ $1 == "--install" ]];then
-    /bin/bash /install/library/installs/setups --purge $2 &&
+    /bin/bash /install/library/installs/setups --purge &&
+    exit
+fi
+
+
+if [[ $1 == "--testing" ]];then
+    /bin/bash /install/library/installs/setups --testing &&
     exit
 fi
 
