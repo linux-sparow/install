@@ -5,7 +5,8 @@ source /post/packer
 
 #HOSTNAME
 echo "$DISTRO_UNIQ" > /etc/hostname &&
-
+echo  $DISTRO_KERN;
+exit
 
 ## KERNELS
 if [[ $DISTRO_KERN == "lqx" ]]; then
