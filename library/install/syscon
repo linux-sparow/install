@@ -130,12 +130,13 @@ if [[ -d /home/$USERNAME ]]; then
     echo "$USERNAME:$PASSWORD" | chpasswd &&
     chown -R $USERNAME:$USERNAME home/$USERNAME &&
     usermod -aG wheel $USERNAME
-    
 else
     useradd -m $USERNAME &&
     usermod -aG wheel $USERNAME &&
     echo "$USERNAME:$PASSWORD" | chpasswd
 fi
+
+
 
 ## FINISHING
 echo "$DISTRO_NAME installation finish, close chroot"
