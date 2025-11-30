@@ -21,7 +21,7 @@ fi
 
 
 if [[ $1 == "--testing" ]];then
-    /bin/bash /install/library/installs/setups --testing &&
+    /bin/bash /install/library/installs/setups --teste &&
     exit
 fi
 
