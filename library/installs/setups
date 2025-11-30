@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## CLEANSING
+## UMOUNTINGALL
 if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then 
     umount -R /mnt
 fi
@@ -11,8 +11,15 @@ appdir=/install
 export PACKAGE=""
 export RDAEMON=""
 export GDAEMON=""
-export KERNCMD=""
+export KERNBOT=""
+export KERNMOD=""
+export KERNSEC=""
+export KERNPRF=""
+export KERNNET=""
+export KERNMSC="rw quiet"
 
+
+## PREPARETION
 if [[ ! -d  "$appdir/config/define/post" ]]; then 
     mkdir -p "$appdir/config/define/post"
 fi
