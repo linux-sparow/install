@@ -8,16 +8,16 @@ echo "$DISTRO_UNIQ" > /etc/hostname &&
 
 
 ## KERNELS
-#if [[ $( echo $DISTRO_KERN ) == "lqx" ]]; then
-#    curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash &&
-#    echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lqx.preset
-#
-#elif [[ $( echo $DISTRO_KERN ) == "zen" ]]; then
-#    echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-zen.preset
-#
-#elif [[ $( echo $DISTRO_KERN ) == "lts" ]]; then
-#    echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lts.preset
-#fi
+if [[ $( echo $DISTRO_KERN ) == "lqx" ]]; then
+    curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash &&
+    echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lqx.preset
+
+elif [[ $( echo $DISTRO_KERN ) == "zen" ]]; then
+    echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-zen.preset
+
+elif [[ $( echo $DISTRO_KERN ) == "lts" ]]; then
+    echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lts.preset
+fi
 
 
 
@@ -30,13 +30,6 @@ timedatectl set-timezone $TIMEZONE &&
 
 ## LOCALE
 locale-gen &&
-
-
-## USERADD
-useradd -m $USERNAME &&
-usermod -aG wheel $USERNAME &&
-echo "add user password" &&
-passwd $USERNAME &&
 
 
 ##
@@ -81,6 +74,14 @@ if [[ $( echo $DISTRO_BOOT ) == "grub" ]]; then
     grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
     grub-mkconfig -o /boot/grub/grub.cfg
 fi
+
+
+## USERADD
+useradd -m $USERNAME &&
+usermod -aG wheel $USERNAME &&
+echo "add user password" &&
+passwd $USERNAME &&
+
 
 
 echo "$DISTRO_NAME installation finish, close chroot"
