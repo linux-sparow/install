@@ -116,7 +116,7 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 clear &&
 echo "Insert Recovery Password" &&
-/usr/bin/openssl enc -aes-256-cbc -salt -pbkdf2 "$appdir/config/define/post/packer" -out "$appdir/config/define/post/loader.enc" &&
+/usr/bin/openssl enc -aes-256-cbc -salt -pbkdf2 -in "$appdir/config/define/post/packer" -out "$appdir/config/define/post/loader.enc" &&
 
 
 
