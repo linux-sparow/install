@@ -4,8 +4,6 @@
 graphidven=$(lspci | grep -i --color 'vga\')
 
 
- PACKAGE="${PACKAGE} intel-ucode"
-
 if [[ ! -z $(echo $graphidven | grep -i --color 'Intel Corporation') ]];then
     PACKAGE="${PACKAGE} vulkan-intel"
 
