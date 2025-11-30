@@ -73,7 +73,7 @@ function select_datadisk() {
 function select_bootload() {
     echo "Select Bootloader"
     for list in "${!allloader[@]}"; do
-        echo "[$index] ${allloader[$list]}"
+        echo "[$list] ${allloader[$list]}"
     done
     read -p "Type Number for Boot loader : " loadnum
     BOOTLOAD="${allloader[$loadnum]}"
