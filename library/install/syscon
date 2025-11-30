@@ -69,25 +69,27 @@ fi
 
 
 ##
-## AURPACK
+## PACKAGE
+useradd -m install &&
+echo 'install ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/install &&
+
+## aurpack
 if [[ ! -z $AURPACKS ]];then
-    useradd -m install &&
-    echo 'install ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/install &&
+   
     sudo -H -u install /bin/bash -c "git clone https://aur.archlinux.org/yay /tmp/yay" &&
     sudo -H -u install /bin/bash -c "makepkg -sric --dir /tmp/yay --noconfirm" &&
     sudo -H -u install /bin/bash -c "yay -S $AURPACKS  --noconfirm"
-    rm /etc/sudoers.d/install &&
-    userdel -r install
 fi
 
-
-##
-## FLATPAK
+## flatpak
 if [[ ! -z $FLATPAKS ]];then
     for flatapp in "${FLATPAKS[@]}"; do
-        flatpak install --noninteractive $flatapp
+        sudo -H -u install /bin/bash -c "flatpak install --noninteractive $flatapp"
     done
 fi
+
+rm /etc/sudoers.d/install &&
+userdel -r install
 
 
 ##
