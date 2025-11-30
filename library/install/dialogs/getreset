@@ -3,6 +3,7 @@
 getrepart=($(lsblk -o path,type | grep "part"))
 recparted=()
 
+
 ## FILTER PARTITION
 for reco_part in "${getrepart[@]}"; do
     if [[ ! -z $( echo $reco_part | grep mapper ) ]];then
@@ -44,9 +45,9 @@ function recovery_mounts_bootdisk() {
 }
 
 
+## START PROCCESS
 function system_resetter() {
     recovery_listing_parteds && 
     recovery_select_bootdisk &&
     recovery_mounts_bootdisk
 }
-
