@@ -79,7 +79,7 @@ mkinitcpio -P &&
 
 
 ## GRUBERS
-if [[ $DISTRO_BOOT == "grub" ]]; then
+if [[ $( echo $DISTRO_BOOT ) == "grub" ]]; then
     echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> /etc/default/grub &&
     grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
     grub-mkconfig -o /boot/grub/grub.cfg
