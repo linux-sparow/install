@@ -33,17 +33,19 @@ echo "#!/bin/bash" > "$appdir/config/define/post/packer";
 
 ## POPULATINGS
 if [[ $1 == "--purge" ]]; then
-    source "$appdir/library/install/dialogs/terminal" &&
+    source "$appdir/library/install/dialogs/newsetup" &&
     start_installer
 fi
 
-if [[ $1 == "--teste" ]]; then
-    cat $appdir/config/testing > $appdir/config/define/post/packer
+if [[ $1 == "--reset" ]]; then
+    source "$appdir/library/install/dialogs/getresets" &&
+    system_resetter
 fi
 
-if [[ -e "$appdir/config/profile" ]]; then
-    cat "$appdir/config/profile" >> $appdir/config/define/post/packer
-fi 
+if [[ $1 == "--teste" ]]; then
+    cat $appdir/config/default > $appdir/config/define/post/packer
+fi
+
 
 if [[ -e "$appdir/distros/preset" ]]; then
     cat $appdir/distros/preset >> $appdir/config/define/post/packer &&
