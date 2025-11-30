@@ -4,7 +4,12 @@ source /post/packer
 
 
 #HOSTNAME
-echo "$DISTRO_UNIQ" > /etc/hostname &&
+if [[ ! -z $( echo $SYSTHOST ) ]];then
+    echo  "$SYSTHOST" > /etc/hostname
+else
+   echo  "$DISTRO_UNIQ" > /etc/hostname
+fi
+
 
 
 ## KERNELS
@@ -54,6 +59,7 @@ if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
     mv /boot/*-ucode.img* "/boot/kernel/"
     bootctl --path=/boot/ install
 fi
+
 
 ## initramfs
 rm /etc/mkinitcpio.conf &&

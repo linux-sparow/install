@@ -1,3 +1,4 @@
+SYSTHOST=sparow
 DISKMAIN=/dev/sda
 DISKBOOT=/dev/sda1
 DISKPROC=/dev/sda2
