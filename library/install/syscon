@@ -69,7 +69,6 @@ fi
 
 
 
-
 ##
 ## SERVICE
 for system_daemon in "${RDAEMONS[@]}"; do
@@ -80,9 +79,14 @@ for global_daemon in "${GDAEMONS[@]}"; do
   	systemctl enable --global "$global_daemon"
 done
 
+
+
+##
+## NETWORK
 if [[ $DISTRO_NETS == "nmt" ]];then
     systemctl disable NetworkManager-wait-online.service
 fi
+
 
 
 ##
