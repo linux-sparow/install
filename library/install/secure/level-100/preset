@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ## PACKAGE 
-PACKAGE="${PACKAGE} keepassxc firewalld iptables-nft"
+PACKAGE="${PACKAGE} keepassxc firewalld iptables-nft "
 
 
 ## DAEMONS
-RDAEMON="${RDAEMON} firewalld"
+RDAEMON="${RDAEMON} firewalld "
 
 
 ## CONFIGS
