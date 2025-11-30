@@ -7,7 +7,7 @@ source /post/packer
 if [[ ! -z $( echo $SYSTHOST ) ]];then
     echo  "$SYSTHOST" > /etc/hostname
 else
-   echo  "$DISTRO_UNIQ" > /etc/hostname
+    echo  "$DISTRO_UNIQ" > /etc/hostname
 fi
 
 
@@ -20,9 +20,9 @@ if [[ $( echo $DISTRO_KERN ) == "lqx" ]]; then
 elif [[ $( echo $DISTRO_KERN ) == "zen" ]]; then
     echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-zen.preset
 
-
 elif [[ $( echo $DISTRO_KERN ) == "lts" ]]; then
     echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lts.preset
+
 fi
 
 
