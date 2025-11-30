@@ -13,9 +13,7 @@ if [[ $( echo $DISTRO_KERN ) == "lqx" ]]; then
     echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lqx.preset
 
 elif [[ $( echo $DISTRO_KERN ) == "zen" ]]; then
-    echo 'default_uki="/boot/efi/linux/$DISTRO_UNIQ.efi"' >> /etc/mkinitcpio.d/linux-zen.preset
-    cat "/etc/mkinitcpio.d/linux-zen.preset"
-    exit
+    echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-zen.preset
 
 elif [[ $( echo $DISTRO_KERN ) == "lts" ]]; then
     echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lts.preset
