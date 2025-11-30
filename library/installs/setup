@@ -23,9 +23,9 @@ else
     echo "" > "$appdir/config/define/packer";
 fi
 
-if [[ $1 == "--purge" ]]; then
-    nano $appdir/config/profile
-fi
+#if [[ $1 == "--purge" ]]; then
+#    nano $appdir/config/profile
+#fi
 
 if [[ -e "$appdir/config/profile" ]]; then
     cat "$appdir/config/profile" > $appdir/config/define/packer
