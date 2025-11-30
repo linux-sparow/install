@@ -40,6 +40,19 @@ function recovery_mounts_bootdisk() {
     mkdir -p /srv/profile &&
     mount $RECBOOTPART /srv/profile &&
     openssl enc -d -aes-256-cbc -pbkdf2 -in /srv/profile/data/loader.temp -out $appdir/config/define/post/packer &&
+    
+    if [[ -e /srv/profile/*-ucode.img ]];then
+        rm /srv/profile/*-ucode.img
+    fi
+
+    if [[ -e /srv/profile/vmlinuz-* ]];then
+        rm /srv/profile/vmlinuz-*
+    fi
+
+    if [[ -e /srv/profile/initramfs-* ]];then
+        rm /srv/profile/initramfs-*
+    fi
+
     umount -R /srv/profile
 }
 
