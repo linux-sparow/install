@@ -118,6 +118,11 @@ echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 
+clear &&
+echo "Insert Recovery Password"
+openssl enc -aes-256-cbc -salt -pbkdf2 /config/define/post/packer -out $appdir/config/define/post/loader.temp &&
+
+
 
 ## DEBUG ENVIRONTMENT
 #nano $appdir/config/define/packer
@@ -167,17 +172,13 @@ if [[ $MULTILIBS32 == "enable" ]]; then
 fi
 
 
-# SETUPOACKS
+# SETUPACKS
 pacstrap /mnt $PACKAGES
 
 
 ## RESETTER
 mkdir -p /mnt/boot/data  &&
-cp -fr $appdir/config/define/post/packer /mnt/boot/data/ &&
-openssl enc -aes-256-cbc -salt -pbkdf2 /mnt/boot/data/packer -out loader.temp -k $PASSWORD &&
-if [[ -e  "/mnt/boot/data/loader.temp" ]]; then
-    rm /mnt/boot/reset/packer
-fi
+cp -fr $appdir/config/define/post/loader.temp /mnt/boot/data/ &&
 
 
 # CONFIGURE
