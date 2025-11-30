@@ -45,6 +45,8 @@ fi
 
 mkdir -p /boot/efi/{boot,linux,systemd} &&
 
+
+## systemdup
 if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
     if [[ ! -e /boot/vmlinuz-*  ]]; then
         mv /boot/vmlinuz-* "/boot/kernel/"
@@ -53,14 +55,13 @@ if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
     bootctl --path=/boot/ install
 fi
 
-
-## INITRAMFS
+## initramfs
 rm /etc/mkinitcpio.conf &&
 rm -fr /etc/mkinitcpio.conf.d/ &&
 echo "root=$DISKPROC" > /etc/cmdline.d/01-boot.conf &&
 mkinitcpio -P &&
 
-## GRUBERS
+## grub init
 if [[ $( echo $DISTRO_BOOT ) == "grub" ]]; then
     echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> /etc/default/grub &&
     grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
