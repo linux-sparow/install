@@ -175,7 +175,7 @@ fi
 ## RESETTER
 mkdir -p /mnt/boot/reset  &&
 cp -fr $appdir/config/define/post/packer /mnt/boot/reset/ &&
-/bin/bash $appdir/library/helper/encrypt "/mnt/boot/reset/packer" "loader" $( echo $PASSWORD ) &&
+openssl enc -aes-256-cbc -salt -in /mnt/boot/reset/packer -out loader.temp -k $PASSWORD
 rm /mnt/boot/reset/packer &&
 
 
