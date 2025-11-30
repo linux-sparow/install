@@ -10,6 +10,7 @@ fi
 appdir=/install
 export PACKAGE=""
 export AURPACK=""
+export FLATPAK=""
 export RDAEMON=""
 export GDAEMON=""
 export KERNBOT=""
