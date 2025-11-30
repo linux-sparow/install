@@ -15,6 +15,7 @@ if [[ $( echo $DISTRO_KERN ) == "lqx" ]]; then
 elif [[ $( echo $DISTRO_KERN ) == "zen" ]]; then
     echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-zen.preset
 
+
 elif [[ $( echo $DISTRO_KERN ) == "lts" ]]; then
     echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> /etc/mkinitcpio.d/linux-lts.preset
 fi
@@ -36,6 +37,15 @@ locale-gen &&
 ## BOOTUPS
 mkdir -p /boot/{efi,kernel,$DISTRO_UNIQ} &&
 mkdir -p /boot/efi/{boot,linux,systemd} &&
+
+if [[ -e /boot/vmlinuz-* ]]; then
+    mv /boot/vmlinuz-* /boot/kernel/
+fi
+
+if [[ -e /boot/*-ucode.image ]]; then
+    mv /boot/*-ucode.image  /boot/kernel/
+fi
+
 rm /etc/mkinitcpio.conf &&
 rm -fr /etc/mkinitcpio.conf.d/ &&
 

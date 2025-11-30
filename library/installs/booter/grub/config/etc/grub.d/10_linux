@@ -175,7 +175,7 @@ case "x$machine" in
 	done ;;
     *) 
 	list=
-	for i in /boot/kernel/vmlinuz-* /boot/vmlinux-* /kernel/vmlinuz-* /vmlinux-* /boot/kernel-* ; do
+	for i in /boot/kernel/vmlinuz-* /boot/kernel/vmlinux-* /kernel/vmlinuz-* /kernel/vmlinux-* /boot/kernel-* ; do
                   if grub_file_is_not_garbage "$i" ; then list="$list $i" ; fi
 	done ;;
 esac
