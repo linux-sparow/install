@@ -103,7 +103,6 @@ if [[ $DISTRO_NETS == "nmt" ]];then
 fi
 
 
-
 ##
 ## BOOTUPS
 
@@ -118,12 +117,18 @@ fi
 
 ## systemd
 if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
+
     mkdir -p /boot/{efi,kernel,loader} &&
     mkdir -p /boot/efi/{boot,linux,systemd} 
-    if [[ ! -e /boot/vmlinuz-*  ]]; then
+
+    if [[ -e /boot/vmlinuz-*  ]]; then
         mv /boot/vmlinuz-* "/boot/kernel/"
     fi
-    mv /boot/*-ucode.img* "/boot/kernel/"
+
+    if [[ -e /boot/*-ucode.img  ]]; then
+        mv /boot/*-ucode.img "/boot/kernel/"
+    fi
+
     bootctl --path=/boot/ install
 fi
 
