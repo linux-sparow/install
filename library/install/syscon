@@ -102,7 +102,6 @@ chmod +x /usr/rbin/* &&
 rm /etc/mkinitcpio.conf &&
 rm -fr /etc/mkinitcpio.conf.d/ &&
 echo "root=$DISKPROC" > /etc/cmdline.d/01-boot.conf &&
-mkinitcpio -P &&
 
 
 ##
@@ -129,6 +128,7 @@ fi
 if [[ $( echo $DISTRO_BOOT ) == "grub" ]]; then
     mkdir -p /boot/{efi,$DISTRO_UNIQ} &&
     mkdir -p /boot/efi/{boot,linux,systemd} &&
+    mkinitcpio -P && 
     echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> /etc/default/grub &&
     grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
     grub-mkconfig -o /boot/grub/grub.cfg
@@ -138,7 +138,8 @@ fi
 ## systemd
 if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
     mkdir -p /boot/{efi,kernel,loader} &&
-    mkdir -p /boot/efi/{boot,linux,systemd} 
+    mkdir -p /boot/efi/{boot,linux,systemd} &&
+    mkinitcpio -P && 
     bootctl --path=/boot/ install
 fi
 
