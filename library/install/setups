@@ -32,8 +32,6 @@ fi
 if [[ ! -e "$appdir/config/define/post/packer" ]]; then 
     touch "$appdir/config/define/post/packer"
 fi
-echo "#!/bin/bash" > "$appdir/config/define/post/packer";
-
 
 
 ## POPULATINGS
