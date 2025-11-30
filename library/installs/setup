@@ -96,7 +96,7 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
 
 
 ## DEBUG ENVIRONTMENT
-nano $appdir/config/define/packer
+#nano $appdir/config/define/packer
 exit
 
 
