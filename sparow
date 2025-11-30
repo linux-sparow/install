@@ -13,26 +13,28 @@ if [[ $1 == "--install" ]];then
 fi
 
 if [[ $1 == "--reset" ]];then
-    /bin/bash /install/library/installs/setups &&
+    /bin/bash /install/library/installs/setups $appdir &&
     exit
 fi
 
 if [[ $1 == "--build" ]];then
-   /bin/bash $appdir/library/builder &&
+    /bin/bash $appdir/library/builder/isogen $appdir &&
    exit
 fi
 
-if [[ $1 == "--deploy" ]];then
-    /bin/bash $appdir/library/deploy &&
+if [[ $1 == "--getapp" ]];then
+    /bin/bash $appdir/library/builder/ipkgen $appdir &&
     exit
 fi
 
-if [[ $1 == "--getapp" ]];then
-    /bin/bash $appdir/library/getpkg $appdir &&
+
+if [[ $1 == "--deploy" ]];then
+    /bin/bash $appdir/library/deploy/server $appdir &&
     exit
 fi
+
 
 if [[ $1 == "--update" ]];then
-    /bin/bash $appdir/library/repoup &&
+    /bin/bash $appdir/library/helper/uprepo $appdir &&
     exit
 fi
