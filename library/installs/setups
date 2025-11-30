@@ -111,7 +111,7 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 ## LOAD PRESETS
 source $appdir/config/define/post/packer &&
-if [[ $MULTILIBS32 == "true" ]]; then
+if [[ $MULTILIBS32 == "enable" ]]; then
     echo "[multilib]" >> /etc/pacman.conf &&
     echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 fi
