@@ -8,12 +8,12 @@ if [[ -z $1 ]]; then
 fi
 
 if [[ $1 == "--install" ]];then
-    /bin/bash /install/library/installs/setup --purge &&
+    /bin/bash /install/library/installs/setups --purge &&
     exit
 fi
 
 if [[ $1 == "--reset" ]];then
-    /bin/bash /install/library/installs/setup &&
+    /bin/bash /install/library/installs/setups &&
     exit
 fi
 
