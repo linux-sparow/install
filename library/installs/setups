@@ -13,8 +13,8 @@ export RDAEMON=""
 export GDAEMON=""
 
 
-if [[ ! -d  "$appdir/config/define" ]]; then 
-    mkdir -p "$appdir/config/define"
+if [[ ! -d  "$appdir/config/define/post" ]]; then 
+    mkdir -p "$appdir/config/define/post"
 fi
 
 if [[ ! -e "$appdir/config/define/post/packer" ]]; then 
@@ -83,6 +83,7 @@ fi
 if [[ -e "$appdir/library/installs/graphs/vdcard" ]]; then
     source $appdir/library/installs/graphs/vdcard
 fi
+
 
 if [[ -e "$appdir/distros/packer" ]]; then
     cp -fr $appdir/library/installs/syscon $appdir/config/define/post/ &&
