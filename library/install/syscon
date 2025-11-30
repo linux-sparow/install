@@ -41,7 +41,7 @@ locale-gen &&
 
 
 ##
-## PACKAGE
+## AURPACK
 useradd -r install &&
 echo 'install ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/install &&
 sudo -H -u install /bin/bash -c "git clone https://aur.archlinux.org/yay /tmp/yay" &&
