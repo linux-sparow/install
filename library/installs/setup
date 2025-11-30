@@ -41,6 +41,7 @@ if [[ -e "$appdir/library/installs/kernels/$DISTRO_KERN/preset" ]]; then
 fi
 
 if [[ -e "$appdir/library/installs/system/$DISTRO_SYST/preset" ]]; then
+    echo "DISTROSYS"
     source $appdir/library/installs/system/$DISTRO_SYST/preset
 fi
 
@@ -95,8 +96,8 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
 
 
 ## DEBUG ENVIRONTMENT
-#nano $appdir/config/define/packer
-#exit
+nano $appdir/config/define/packer
+exit
 
 
 ## LOAD PRESETS
