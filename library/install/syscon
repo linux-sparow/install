@@ -88,7 +88,7 @@ if [[ ! -z $FLATPAKS ]];then
 fi
 
 rm /etc/sudoers.d/install &&
-userdel -r install
+userdel -r install &&
 
 
 ##
