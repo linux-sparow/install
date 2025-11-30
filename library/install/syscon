@@ -42,20 +42,23 @@ locale-gen &&
 
 ##
 ## AURPACK
-useradd -m install &&
-echo 'install ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/install &&
-sudo -H -u install /bin/bash -c "git clone https://aur.archlinux.org/yay /tmp/yay" &&
-sudo -H -u install /bin/bash -c "makepkg -sric --dir /tmp/yay --noconfirm" &&
-sudo -H -u install /bin/bash -c "yay -S $AURPACKS"
-rm /etc/sudoers.d/install &&
-userdel -r install &&
-
+if [[ ! -z $AURPACKS ]];then
+    useradd -m install &&
+    echo 'install ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/install &&
+    sudo -H -u install /bin/bash -c "git clone https://aur.archlinux.org/yay /tmp/yay" &&
+    sudo -H -u install /bin/bash -c "makepkg -sric --dir /tmp/yay --noconfirm" &&
+    sudo -H -u install /bin/bash -c "yay -S $AURPACKS"
+    rm /etc/sudoers.d/install &&
+    userdel -r install
+fi
 
 ##
 ## FLATPAK
-for flatapp in "${FLATPAKS[@]}"; do
-    flatpak install $flatapp
-done
+if [[ ! -z $FLATPAKS ]];then
+    for flatapp in "${FLATPAKS[@]}"; do
+        flatpak install $flatapp
+    done
+fi
 
 
 ##
