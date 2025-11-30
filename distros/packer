@@ -2,7 +2,7 @@
 
 PACKAGE="${PACKAGE} virt-manager libvirt qemu-desktop podman podman-desktop docker code apparmor lvm2 testdisk btrfs-progs xfsprogs ntfs-3g dosfstools ethtool rsync grsync grafana "
 AURPACK="${AURPACK} winbox "
-FLATPAK="${FLATPAK} winbox "
+FLATPAK=( flathub net.agalwood.Motrix )
 RDAEMON="${RDAEMON} libvirtd docker.socket grafana.service "
 GDAEMON="${GDAEMON}"
 

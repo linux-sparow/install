@@ -51,6 +51,12 @@ rm /etc/sudoers.d/install &&
 userdel -r install &&
 
 
+##
+## FLATPAK
+for flatapp in "${FLATPAK[@]}"; do
+    flatpak install $flatapp
+done
+
 
 ##
 ## BOOTUPS
