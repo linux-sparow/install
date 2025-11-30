@@ -39,8 +39,7 @@ function recovery_select_bootdisk() {
 function recovery_mounts_bootdisk() { 
     mkir -p /srv/profile &&
     mount $RECBOOTPART /srv/profile &&
-    openssl enc -d -aes-256-cbc -pbkdf2 -in /srv/profile/data/loader.temp -out /recover-profile &&
-    cat /recover-profile > $appdir/config/define/post/packer &&
+    openssl enc -d -aes-256-cbc -pbkdf2 -in /srv/profile/data/loader.temp -out $appdir/config/define/post/packer &&
     umount -R /srv/profile
 }
 
