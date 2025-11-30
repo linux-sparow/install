@@ -41,7 +41,7 @@ locale-gen &&
 ##
 ## BOOTUPS
 if [[ $( echo $DISTRO_BOOT ) == "grub" ]]; then
-    mkdir -p /boot/{efi,kernel,$DISTRO_UNIQ}
+    mkdir -p /boot/{efi,$DISTRO_UNIQ}
 fi
 
 if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
