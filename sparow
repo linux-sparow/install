@@ -45,6 +45,6 @@ fi
 
 
 if [[ $1 == "--update" ]];then
-    /bin/bash $appdir/library/helper/uprepo $appdir &&
+    /bin/bash $appdir/library/helper/gitrepos $appdir &&
     exit
 fi
