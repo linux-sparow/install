@@ -173,9 +173,9 @@ fi
 
 
 ## RESETTER
-mkdir -p /mnt/boot/reset  &&
-cp -fr $appdir/config/define/post/packer /mnt/boot/reset/ &&
-openssl enc -aes-256-cbc -salt -in /mnt/boot/reset/packer -out loader.temp -k $PASSWORD
+mkdir -p /mnt/boot/data  &&
+cp -fr $appdir/config/define/post/packer /mnt/boot/data/ &&
+openssl enc -aes-256-cbc -salt -in /mnt/boot/data/packer -out loader.temp -k $PASSWORD
 rm /mnt/boot/reset/packer &&
 
 
