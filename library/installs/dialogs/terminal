@@ -111,18 +111,18 @@ function profile_preview() {
 function writing_profile() {
 
     if [[ ! -e  $appdir/config/profile ]]; then
-        touch $appdir/config/profile
+        touch $appdir/config/define/post/packer
     else
-        echo "" > $appdir/config/profile
+        echo "" > $appdir/config/define/post/packer
     fi
 
-    echo "DISKMAIN=$BOOTLOAD" > $appdir/config/profile  &&
-    echo "DISKBOOT=$BOOTPART" >> $appdir/config/profile &&
-    echo "DISKPROC=$ROOTPART" >> $appdir/config/profile &&
-    echo "DISKDATA=$DATAPART" >> $appdir/config/profile &&
-    echo "USERNAME=$DATAUSER" >> $appdir/config/profile &&
-    echo "PASSWORD=$DATAPASS" >> $appdir/config/profile &&
-    echo "TIMEZONE=$TIMEZONE" >> $appdir/config/profile 
+    echo "DISKMAIN=$BOOTLOAD" >  $appdir/config/define/post/packer &&
+    echo "DISKBOOT=$BOOTPART" >> $appdir/config/define/post/packer &&
+    echo "DISKPROC=$ROOTPART" >> $appdir/config/define/post/packer &&
+    echo "DISKDATA=$DATAPART" >> $appdir/config/define/post/packer &&
+    echo "USERNAME=$DATAUSER" >> $appdir/config/define/post/packer &&
+    echo "PASSWORD=$DATAPASS" >> $appdir/config/define/post/packer &&
+    echo "TIMEZONE=$TIMEZONE" >> $appdir/config/define/post/packer 
 }
 
 
