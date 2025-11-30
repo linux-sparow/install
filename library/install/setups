@@ -175,14 +175,14 @@ fi
 ## RESETTER
 mkdir -p /mnt/boot/reset  &&
 cp -fr $appdir/config/define/post/packer /mnt/boot/reset/ &&
-encrypt_file /mnt/boot/reset/packer loader $PASSWORD &&
+encrypt_file /mnt/boot/reset/packer loader $( echo $PASSWORD ) &&
 rm /mnt/boot/reset/packer &&
 
 
 # CONFIGURE
 genfstab -U /mnt > /mnt/etc/fstab &&
 cp -fr $appdir/config/define/* /mnt/ &&
-arch-chroot /mnt /bin/bash /post/syscon
+arch-chroot /mnt /bin/bash /post/syscon &&
 
 
 
