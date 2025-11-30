@@ -4,23 +4,27 @@ appdir=$(pwd)
 
 
 if [[ -z $1 ]]; then
-    echo "Error : command need additional paramater"
+    echo "Error : need additional paramater"
 fi
+
+
+if [[ $1 == "--reset" ]];then
+    /bin/bash /install/library/installs/setups &&
+    exit
+fi
+
 
 if [[ $1 == "--install" ]];then
     /bin/bash /install/library/installs/setups --purge &&
     exit
 fi
 
-if [[ $1 == "--reset" ]];then
-    /bin/bash /install/library/installs/setups $appdir &&
-    exit
-fi
 
 if [[ $1 == "--build" ]];then
     /bin/bash $appdir/library/builder/isogen $appdir &&
-   exit
+    exit
 fi
+
 
 if [[ $1 == "--getapp" ]];then
     /bin/bash $appdir/library/builder/ipkgen $appdir &&
