@@ -17,10 +17,10 @@ if [[ ! -d  "$appdir/config/define" ]]; then
     mkdir -p "$appdir/config/define"
 fi
 
-if [[ ! -e "$appdir/config/define/packer" ]]; then 
-    touch "$appdir/config/define/packer"
+if [[ ! -e "$appdir/config/define/post/packer" ]]; then 
+    touch "$appdir/config/define/post/packer"
 else
-    echo "" > "$appdir/config/define/packer";
+    echo "" > "$appdir/config/define/post/packer";
 fi
 
 if [[ $1 == "--purge" ]]; then
@@ -28,12 +28,12 @@ if [[ $1 == "--purge" ]]; then
 fi
 
 if [[ -e "$appdir/config/profile" ]]; then
-    cat "$appdir/config/profile" > $appdir/config/define/packer
+    cat "$appdir/config/profile" > $appdir/config/define/post/packer
 fi 
 
 if [[ -e "$appdir/distros/preset" ]]; then
-    cat $appdir/distros/preset >> $appdir/config/define/packer &&
-    source $appdir/config/define/packer
+    cat $appdir/distros/preset >> $appdir/config/define/post/packer &&
+    source $appdir/config/define/post/packer
 fi
 
 if [[ -e "$appdir/library/installs/kernels/$DISTRO_KERN/preset" ]]; then
@@ -89,9 +89,9 @@ if [[ -e "$appdir/distros/packer" ]]; then
 fi 
 
 
-echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/packer &&
-echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/packer &&
-echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
+echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/post/packer &&
+echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
+echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 
 ## DEBUG ENVIRONTMENT
@@ -100,7 +100,7 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/packer &&
 
 
 ## LOAD PRESETS
-source $appdir/config/define/packer &&
+source $appdir/config/define/post/packer &&
 if [[ $MULTILIBS32 == "true" ]]; then
     echo "[multilib]" >> /etc/pacman.conf &&
     echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
@@ -133,7 +133,7 @@ pacstrap /mnt $PACKAGES
 
 
 ## MULTILIB
-if [[ $MULTILIBS32 == "true" ]]; then
+if [[ $MULTILIBS32 == "enable" ]]; then
     echo "[multilib]" >> /mnt/etc/pacman.conf &&
     echo "Include = /etc/pacman.d/mirrorlist" >> /mnt/etc/pacman.conf
 fi
