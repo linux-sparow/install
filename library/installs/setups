@@ -11,7 +11,7 @@ appdir=/install
 export PACKAGE=""
 export RDAEMON=""
 export GDAEMON=""
-
+export KERNCMD=""
 
 if [[ ! -d  "$appdir/config/define/post" ]]; then 
     mkdir -p "$appdir/config/define/post"
