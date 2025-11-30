@@ -1,11 +1,12 @@
 #!/bin/bash
 
 
+
+## ENVIRONTMENT
 getparted=($(lsblk -o path,type | grep "part"))
 getloader=($(lsblk -d -o path))
 allparted=()
 allloader=()
-selecteds=""
 
 
 ## FILTER PARTITION
@@ -19,6 +20,8 @@ for alls_part in "${getparted[@]}"; do
     allparted+=("$alls_part")
 done
 
+
+## FILTER BOOTLOADER
 for load_part in "${getloader[@]}"; do
     if [[ ! -z $( echo $load_part | grep "PATH" ) ]];then
         continue
@@ -86,6 +89,7 @@ function create_administ() {
 }
 
 
+## REVIEW CONFIGURED
 function profile_preview() {
 
     echo "This Your Configuration Data"
@@ -108,14 +112,8 @@ function profile_preview() {
 }
 
 
+## WRITING PROFILERS
 function writing_profile() {
-
-    if [[ ! -e  $appdir/config/profile ]]; then
-        touch $appdir/config/define/post/packer
-    else
-        echo "" > $appdir/config/define/post/packer
-    fi
-
     echo "DISKMAIN=$BOOTLOAD" >  $appdir/config/define/post/packer &&
     echo "DISKBOOT=$BOOTPART" >> $appdir/config/define/post/packer &&
     echo "DISKPROC=$ROOTPART" >> $appdir/config/define/post/packer &&
@@ -126,6 +124,7 @@ function writing_profile() {
 }
 
 
+## STARTING DIALOGS
 function start_installer() {
     clear &&
     select_bootdisk &&
