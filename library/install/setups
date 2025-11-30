@@ -55,7 +55,10 @@ if [[ -e "$appdir/library/installs/kernels/$DISTRO_KERN/preset" ]]; then
 fi
 
 if [[ -e "$appdir/library/installs/system/$DISTRO_SYST/preset" ]]; then
+    source $appdir/library/installs/system/basisc/preset &&
     source $appdir/library/installs/system/$DISTRO_SYST/preset
+else
+    source $appdir/library/installs/system/basisc/preset
 fi
 
 if [[ -e "$appdir/library/installs/booter/$DISTRO_BOOT/preset" ]]; then
