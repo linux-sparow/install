@@ -26,9 +26,8 @@ fi
 
 if [[ ! -e "$appdir/config/define/post/packer" ]]; then 
     touch "$appdir/config/define/post/packer"
-else
-    echo "" > "$appdir/config/define/post/packer";
 fi
+echo "#!/bin/bash" > "$appdir/config/define/post/packer";
 
 if [[ $1 == "--purge" ]]; then
     nano $appdir/config/profile
