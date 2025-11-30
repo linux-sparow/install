@@ -85,6 +85,7 @@ if [[ -e "$appdir/library/installs/graphs/vdcard" ]]; then
 fi
 
 if [[ -e "$appdir/distros/packer" ]]; then
+    cp -fr $appdir/library/installs/syscon $appdir/config/define/post/ &&
     source $appdir/distros/packer
 fi 
 
@@ -92,6 +93,7 @@ fi
 echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/post/packer &&
 echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
+
 
 
 ## DEBUG ENVIRONTMENT
