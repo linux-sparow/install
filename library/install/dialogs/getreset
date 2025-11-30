@@ -1,0 +1,40 @@
+#!/bin/bash
+
+getparted=($(lsblk -o path,type | grep "part"))
+
+
+## FILTER PARTITION
+for alls_part in "${getparted[@]}"; do
+    if [[ ! -z $( echo $alls_part | grep mapper ) ]];then
+        continue
+    fi
+    if [[ $( echo $alls_part ) == "part"  ]];then
+        continue
+    fi
+    allparted+=("$alls_part")
+done
+
+
+## LISTING PARTEDS
+function recovery_listing_parteds() {
+    index=0
+    for index in "${!allparted[@]}"; do
+        echo "[$index] ${allparted[$index]}"
+    done
+} 
+
+
+## SELECT BOOTDISK
+function recovery_select_bootdisk() {
+    echo "Select Your Boot Partition"
+    recovery_listing_parteds
+    read -p "Type Number of Boot Partition : " bootnum
+    RECBOOTPART="${allparted[$bootnum]}"
+    unset 'allparted[$bootnum]'
+}
+
+
+## MOUNT BOOTDISK
+function recovery_mounts_bootdisk() { 
+    
+}
