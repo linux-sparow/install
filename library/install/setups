@@ -6,6 +6,13 @@ if [[ ! -z $(findmnt --mountpoint /mnt) ]]; then
 fi
 
 
+## LOADLIBRARY
+source "$appdir/library/helper/cryptos"
+source "$appdir/library/install/dialogs/getsetup"
+source "$appdir/library/install/dialogs/getreset"
+
+
+
 ## ENVIRONTMENT
 appdir=/install
 export PACKAGE=""
@@ -33,12 +40,10 @@ echo "#!/bin/bash" > "$appdir/config/define/post/packer";
 
 ## POPULATINGS
 if [[ $1 == "--purge" ]]; then
-    source "$appdir/library/install/dialogs/newsetup" &&
     start_installer
 fi
 
 if [[ $1 == "--reset" ]]; then
-    source "$appdir/library/install/dialogs/getresets" &&
     system_resetter
 fi
 
@@ -170,9 +175,9 @@ fi
 
 
 ## RESETTER
-mkdir -p /mnt/boot/reset &&
+mkdir -p /mnt/boot/reset  &&
 cp -fr $appdir/config/define/packer /mnt/boot/reset/ &&
-openssl enc -aes-256-cbc -salt -in /mnt/boot/reset/packer -out loader.enc -k $PASSWORD &&
+encrypt_file /mnt/boot/reset/packer loader $PASSWORD &&
 rm /mnt/boot/reset/packer &&
 
 

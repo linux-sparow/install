@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+function encrypt_file() {
+    openssl enc -aes-256-cbc -salt -in $1 -out $2.enc -k $3
+}
+
+function decrypt_file() {
+    
+}
