@@ -188,7 +188,7 @@ arch-chroot /mnt /bin/bash /post/syscon &&
 
 
 # FINISHING
-rm -fr /mnt/post && sleep 2 &&
+rm -fr /mnt/post && sleep 2 && clear &&
 read -p "Do yout want reboot now : [Y/n] " REBOOTNOW
 
 if [[ $REBOOTNOW == Y ]]||[[ $REBOOTNOW == y ]];then
