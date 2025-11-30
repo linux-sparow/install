@@ -78,9 +78,11 @@ mkinitcpio -P &&
 
 
 ## GRUBERS
-echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> /etc/default/grub &&
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
-grub-mkconfig -o /boot/grub/grub.cfg &&
+if [[ $DISTRO_BOOT == "grub" ]]; then
+    echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> /etc/default/grub &&
+    grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=$DISTRO_UNIQ &&
+    grub-mkconfig -o /boot/grub/grub.cfg
+fi
 
 
 echo "$DISTRO_NAME installation finish, close chroot"

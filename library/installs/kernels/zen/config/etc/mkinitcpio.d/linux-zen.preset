@@ -12,12 +12,12 @@ PRESETS=('default')
 
 
 #default_config="/etc/mkinitcpio.conf"
-#default_image="/boot/sparow.img"
+#default_image="/boot/linuxzen.img"
 #default_uki="/boot/efi/linux/sparow.efi"
-#default_options="--splash /usr/share/systemd/bootctl/sparow.bmp"
+#default_options="--splash /usr/share/systemd/bootctl/linuxzen.bmp"
 
 
 #fallback_config="/etc/mkinitcpio.conf"
-#fallback_image="/boot/sparow-fallback.img"
-#fallback_uki="/efi/EFI/Linux/sparow.efi"
+#fallback_image="/boot/linuxzen-fallback.img"
+#fallback_uki="/boot/efi/linux/linuxzen.efi"
 #fallback_options="-S autodetect"
