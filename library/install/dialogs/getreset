@@ -40,9 +40,13 @@ function recovery_mounts_bootdisk() {
     mkdir -p /srv/profile &&
     mount $RECBOOTPART /srv/profile &&
     openssl enc -d -aes-256-cbc -pbkdf2 -in /srv/profile/data/loader.temp -out $appdir/config/define/post/packer &&
-    
-    if [[ -e /srv/profile/*-ucode.img ]];then
-        rm /srv/profile/*-ucode.img
+
+    if [[ -e /srv/profile/intel-ucode.img ]];then
+        rm /srv/profile/intel-ucode.img
+    fi
+
+    if [[ -e /srv/profile/amd-ucode.img ]];then
+        rm /srv/profile/amd-ucode.img
     fi
 
     if [[ -e /srv/profile/vmlinuz-* ]];then
