@@ -9,6 +9,6 @@ if [[ ! -z $( ip a | grep "wl" ) ]] ;then
 fi
 
 ## CONFIGS
-if [[ -d "$appdir/library/installs/kernels/lqx/config" ]]; then
-    cp -fr "$appdir/library/installs/kernels/lqx/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/install/kernels/lqx/config" ]]; then
+    cp -fr "$appdir/library/install/kernels/lqx/config/"* "$appdir/config/define/"
 fi

@@ -12,6 +12,6 @@ GDAEMON="${GDAEMON} gcr-ssh-agent.socket"
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/installs/deksto/gnome/config" ]]; then
-    cp -fr "$appdir/library/installs/deksto/gnome/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/install/deksto/gnome/config" ]]; then
+    cp -fr "$appdir/library/install/deksto/gnome/config/"* "$appdir/config/define/"
 fi

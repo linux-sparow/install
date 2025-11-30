@@ -9,7 +9,7 @@ fi
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/installs/kernels/zen/config" ]]; then
-    cp -fr "$appdir/library/installs/kernels/zen/config/"* "$appdir/config/define/" &&
+if [[ -d "$appdir/library/install/kernels/zen/config" ]]; then
+    cp -fr "$appdir/library/install/kernels/zen/config/"* "$appdir/config/define/" &&
     echo 'default_uki="/boot/efi/linux/'$DISTRO_UNIQ'.efi"' >> "$appdir/config/define/etc/mkinitcpio.d/linux-zen.preset"
 fi

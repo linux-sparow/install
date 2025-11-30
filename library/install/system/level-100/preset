@@ -9,6 +9,6 @@ RDAEMON="${RDAEMON} update.timer"
 
 
 ## CONFIGS
-if [[ -d "$appdir/library/installs/system/level-0/config" ]]; then
-    cp -fr "$appdir/library/installs/system/level-0/config/"* "$appdir/config/define/"
+if [[ -d "$appdir/library/install/system/level-0/config" ]]; then
+    cp -fr "$appdir/library/install/system/level-0/config/"* "$appdir/config/define/"
 fi
