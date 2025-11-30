@@ -5,7 +5,7 @@ PACKAGE="${PACKAGE}linux-lts scx-scheds"
 
 if [[ ! -z ( ip a | grep "wl" ) ]] ;then
     PACKAGE="${PACKAGE} wireless-regdb"
-if
+fi
 
 ## CONFIGS
 if [[ -d "$appdir/library/installs/kernels/lts/config" ]]; then

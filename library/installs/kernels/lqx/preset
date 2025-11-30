@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+## PACKAGE 
+PACKAGE="${PACKAGE}scx-scheds"
+
+if [[ ! -z ( ip a | grep "wl" ) ]] ;then
+    PACKAGE="${PACKAGE} wireless-regdb"
+fi
+
 ## CONFIGS
 if [[ -d "$appdir/library/installs/kernels/lqx/config" ]]; then
     cp -fr "$appdir/library/installs/kernels/lqx/config/"* "$appdir/config/define/"

@@ -5,7 +5,7 @@ PACKAGE="${PACKAGE}linux-zen scx-scheds"
 
 if [[ ! -z ( ip a | grep "wl" ) ]] ;then
     PACKAGE="${PACKAGE} wireless-regdb"
-if
+fi
 
 
 ## CONFIGS
