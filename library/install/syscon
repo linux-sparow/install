@@ -34,8 +34,22 @@ timedatectl set-ntp true &&
 timedatectl set-timezone $TIMEZONE &&
 
 
+
 ## LOCALE
 locale-gen &&
+
+
+
+##
+## PACKAGE
+useradd -r install &&
+echo 'install ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/install &&
+sudo -H -u install /bin/bash -c "git clone https://aur.archlinux.org/yay /tmp/yay" &&
+sudo -H -u install /bin/bash -c "makepkg -sric --dir /tmp/yay --noconfirm" &&
+sudo -H -u install /bin/bash -c "yay -S $AURPACK"
+rm /etc/sudoers.d/install &&
+userdel -r install &&
+
 
 
 ##

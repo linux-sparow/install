@@ -9,6 +9,7 @@ fi
 ## ENVIRONTMENT
 appdir=/install
 export PACKAGE=""
+export AURPACK=""
 export RDAEMON=""
 export GDAEMON=""
 export KERNBOT=""
