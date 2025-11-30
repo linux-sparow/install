@@ -45,7 +45,7 @@ if [[ $( echo $DISTRO_BOOT ) == "grub" ]]; then
 fi
 
 if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
-    mkdir -p /boot/{efi,kernel,loader
+    mkdir -p /boot/{efi,kernel,loader}
 fi
 
 mkdir -p /boot/efi/{boot,linux,systemd} &&
