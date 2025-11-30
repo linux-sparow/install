@@ -160,10 +160,6 @@ mkdir -p /mnt/home &&
 mount $DISKDATA /mnt/home &&
 
 
-# SETUPOACKS
-pacstrap /mnt $PACKAGES
-
-
 ## MULTILIB
 if [[ $MULTILIBS32 == "enable" ]]; then
     echo "[multilib]" >> /mnt/etc/pacman.conf &&
@@ -171,10 +167,14 @@ if [[ $MULTILIBS32 == "enable" ]]; then
 fi
 
 
+# SETUPOACKS
+pacstrap /mnt $PACKAGES
+
+
 ## RESETTER
 mkdir -p /mnt/boot/data  &&
 cp -fr $appdir/config/define/post/packer /mnt/boot/data/ &&
-openssl enc -aes-256-cbc -salt -pbkdf2 /mnt/boot/data/packer -out loader.temp &&
+openssl enc -aes-256-cbc -salt -pbkdf2 /mnt/boot/data/packer -out loader.temp -k $PASSWORD &&
 if [[ -e  "/mnt/boot/data/loader.temp" ]]; then
     rm /mnt/boot/reset/packer
 fi
