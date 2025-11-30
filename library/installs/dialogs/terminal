@@ -93,13 +93,14 @@ function create_administ() {
 function profile_preview() {
 
     echo "This Your Configuration Data"
-    echo " Boot Partition : $BOOTLOAD"
+    echo " Boot Loader    : $BOOTLOAD"
+    echo " Username       : $DATAUSER"
+    echo " Password       : $DATAPASS"
+    echo " Timezone       : $TIMEZONE"
     echo " Boot Partition : $BOOTPART"
-    echo " Boot Partition : $ROOTPART"
-    echo " Boot Partition : $DATAPART"
-    echo " Boot Partition : $DATAUSER"
-    echo " Boot Partition : $DATAPASS"
-    echo " Boot Partition : $TIMEZONE"
+    echo " Root Partition : $ROOTPART"
+    echo " Data Partition : $DATAPART"
+  
     read -p "Do you want continue using this data : [ Y/n ]" EXEC
 
     if [[ $EXEC == "Y" ]];then
