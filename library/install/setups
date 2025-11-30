@@ -112,6 +112,8 @@ fi
 
 
 echo "PACKAGES='${PACKAGE}'" >> $appdir/config/define/post/packer &&
+echo "AURPACKS='${AURPACK}'" >> $appdir/config/define/post/packer &&
+echo "FLATPAKS='${FLATPAK}'" >> $appdir/config/define/post/packer &&
 echo "RDAEMONS=(${RDAEMON})" >> $appdir/config/define/post/packer &&
 echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
