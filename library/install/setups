@@ -49,7 +49,6 @@ if [[ $1 == "--teste" ]]; then
     cat $appdir/config/default > $appdir/config/define/post/packer
 fi
 
-
 if [[ -e "$appdir/distros/preset" ]]; then
     cat $appdir/distros/preset >> $appdir/config/define/post/packer &&
     source $appdir/config/define/post/packer
@@ -58,7 +57,6 @@ fi
 if [[ -e "$appdir/library/install/kernels/$DISTRO_KERN/preset" ]]; then
     source $appdir/library/install/kernels/$DISTRO_KERN/preset
 fi
-
 
 if [[ -e "$appdir/library/install/system/$DISTRO_SYST/preset" ]]; then
     source $appdir/library/install/system/basics/preset &&
@@ -119,8 +117,8 @@ echo "GDAEMONS=(${GDAEMON})" >> $appdir/config/define/post/packer &&
 
 
 clear &&
-echo "Insert Recovery Password"
-openssl enc -aes-256-cbc -salt -pbkdf2 $appdir/config/define/post/packer -out $appdir/config/define/post/loader.temp &&
+echo "Insert Recovery Password" &&
+/usr/bin/openssl enc -aes-256-cbc -salt -pbkdf2 $appdir/config/define/post/packer -out $appdir/config/define/post/loader.enc &&
 
 
 
