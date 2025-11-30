@@ -156,4 +156,4 @@ arch-chroot /mnt /bin/bash /post/syscon &&
 
 
 # FINISHING
-rm -fr /mnt/post && sleep 2 && umount -R /mnt && reboot
+#rm -fr /mnt/post && sleep 2 && umount -R /mnt && reboot
