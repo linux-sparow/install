@@ -129,6 +129,10 @@ if [[ $( echo $DISTRO_BOOT ) == "sysd" ]]; then
         mv /boot/*-ucode.img "/boot/kernel/"
     fi
 
+    if [[ -e /boot/initram*  ]]; then
+        rm initram*
+    fi
+
     bootctl --path=/boot/ install
 fi
 
