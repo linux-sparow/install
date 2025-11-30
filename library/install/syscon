@@ -39,11 +39,28 @@ locale-gen &&
 
 
 ## USERADD
-if [[ -d /home/$USERNAME ]]; then
-    useradd -d /home/$USERNAME $USERNAME &&
-    echo "$USERNAME:$PASSWORD" | chpasswd &&
-    chown -R $USERNAME:$USERNAME home/$USERNAME &&
-    usermod -aG wheel $USERNAME
+if [[ -d /home/* ]]; then
+
+    listuser=($( ls /home/ ))
+
+    for olduser in "${listuser[@]}"; do
+
+        if [[ $olduser == $USERNAME ]]; then
+            useradd -d /home/$USERNAME $USERNAME &&
+            echo "$USERNAME:$PASSWORD" | chpasswd &&
+            chown -R $USERNAME:$USERNAME home/$USERNAME &&
+            usermod -aG wheel $USERNAME 
+            clear
+        else
+            useradd -d /home/$olduser $olduser &&
+            read -p "add user password for user $olduser" olduserpassword
+            chown -R $olduser:$olduser home/$user &&
+            echo "$olduser:$olduserpassword" | chpasswd &&
+            clear
+        fi
+        
+    done
+
 else
     useradd -m $USERNAME &&
     usermod -aG wheel $USERNAME &&
