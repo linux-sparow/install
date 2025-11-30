@@ -39,12 +39,12 @@ fi
 
 
 if [[ $1 == "--deploy" ]];then
-    /bin/bash $appdir/library/deploy/upload $appdir &&
+    /bin/bash $appdir/library/deploy/uploads $appdir &&
     exit
 fi
 
 
-if [[ $1 == "--update" ]];then
-    /bin/bash $appdir/library/helper/gitrepos $appdir &&
+if [[ $1 == "--gitpush" ]];then
+    /bin/bash $appdir/library/helper/gitpush $appdir &&
     exit
 fi
