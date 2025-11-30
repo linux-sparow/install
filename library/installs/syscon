@@ -5,7 +5,7 @@ source /post/packer
 
 #HOSTNAME
 echo "$DISTRO_UNIQ" > /etc/hostname &&
-cat  /post/packer;
+echo  $DISTRO_KERN;
 exit
 
 ## KERNELS
