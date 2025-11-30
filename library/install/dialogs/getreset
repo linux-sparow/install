@@ -1,17 +1,17 @@
 #!/bin/bash
 
-getparted=($(lsblk -o path,type | grep "part"))
+getrepart=($(lsblk -o path,type | grep "part"))
 recparted=()
 
 ## FILTER PARTITION
-for reco_part in "${getparted[@]}"; do
+for reco_part in "${getrepart[@]}"; do
     if [[ ! -z $( echo $reco_part | grep mapper ) ]];then
         continue
     fi
     if [[ $( echo $reco_part ) == "part"  ]];then
         continue
     fi
-    allparted+=("$reco_part")
+    recparted+=("$reco_part")
 done
 
 
@@ -28,18 +28,18 @@ function recovery_listing_parteds() {
 function recovery_select_bootdisk() {
     echo "Select Your Boot Partition"
     recovery_listing_parteds
-    read -p "Type Number of Boot Partition : " bootnum
-    RECBOOTPART="${recparted[$bootnum]}"
-    unset 'recparted[$bootnum]'
+    read -p "Type Number of Boot Partition : " reconum
+    RECBOOTPART="${recparted[$reconum]}"
+    unset 'recparted[$reconum]'
 }
 
 
 ## MOUNT BOOTDISK
 function recovery_mounts_bootdisk() { 
-    mkir -p /srv/profile
-    mount $RECBOOTPART /srv/profile
-    openssl enc -d -aes-256-cbc -pbkdf2 -in /srv/profile/data/loader.temp -out /recover-profile
-    cat /recover-profile > $appdir/config/define/post/packer
+    mkir -p /srv/profile &&
+    mount $RECBOOTPART /srv/profile &&
+    openssl enc -d -aes-256-cbc -pbkdf2 -in /srv/profile/data/loader.temp -out /recover-profile &&
+    cat /recover-profile > $appdir/config/define/post/packer &&
     umount -R /srv/profile
 }
 
