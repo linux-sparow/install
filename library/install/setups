@@ -176,7 +176,6 @@ fi
 mkdir -p /mnt/boot/data  &&
 cp -fr $appdir/config/define/post/packer /mnt/boot/data/ &&
 openssl enc -aes-256-cbc -salt -in /mnt/boot/data/packer -out loader.temp -k $PASSWORD &&
-
 if [[ -e  "/mnt/boot/data/loader.temp" ]]; then
     rm /mnt/boot/reset/packer
 fi
