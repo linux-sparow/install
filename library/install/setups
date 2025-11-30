@@ -169,6 +169,13 @@ if [[ $MULTILIBS32 == "enable" ]]; then
 fi
 
 
+## RESETTER
+mkdir -p /mnt/boot/reset &&
+cp -fr $appdir/config/define/packer /mnt/boot/reset/ &&
+openssl enc -aes-256-cbc -salt -in /mnt/boot/reset/packer -out loader.enc -k $PASSWORD &&
+rm /mnt/boot/reset/packer &&
+
+
 # CONFIGURE
 genfstab -U /mnt > /mnt/etc/fstab &&
 cp -fr $appdir/config/define/* /mnt/ &&

@@ -61,6 +61,7 @@ rm -fr /etc/mkinitcpio.conf.d/ &&
 echo "root=$DISKPROC" > /etc/cmdline.d/01-boot.conf &&
 mkinitcpio -P &&
 
+
 ## grub init
 if [[ $( echo $DISTRO_BOOT ) == "grub" ]]; then
     echo 'GRUB_DISTRIBUTOR="'$DISTRO_NAME'"' >> /etc/default/grub &&
