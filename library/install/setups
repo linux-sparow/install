@@ -108,7 +108,6 @@ if [[ -e "$appdir/library/install/graphs/vdcard" ]]; then
     source $appdir/library/install/graphs/vdcard
 fi
 
-
 if [[ -e "$appdir/distros/packer" ]]; then
     cp -fr $appdir/library/install/syscon $appdir/config/define/post/ &&
     source $appdir/distros/packer

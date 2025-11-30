@@ -82,10 +82,11 @@ function select_bootload() {
 
 ## ADD ADMINISTRATOR
 function create_administ() {
-    echo "Create Administrator"
+    echo "System Configuration"
     read -p "username : " DATAUSER &&
     read -p "password : " DATAPASS &&
     read -p "timezone : " TIMEZONE
+    read -p "hostname : " SYSTHOST
 }
 
 
@@ -93,6 +94,7 @@ function create_administ() {
 function profile_preview() {
 
     echo "This Your Configuration Data"
+    echo " HOSTNAME       : $SYSTHOST"
     echo " Boot Loader    : $BOOTLOAD"
     echo " Username       : $DATAUSER"
     echo " Password       : $DATAPASS"
@@ -115,6 +117,7 @@ function profile_preview() {
 
 ## WRITING PROFILERS
 function writing_profile() {
+    echo "DISKMAIN=$SYSTHOST" >  $appdir/config/define/post/packer &&
     echo "DISKMAIN=$BOOTLOAD" >  $appdir/config/define/post/packer &&
     echo "DISKBOOT=$BOOTPART" >> $appdir/config/define/post/packer &&
     echo "DISKPROC=$ROOTPART" >> $appdir/config/define/post/packer &&
