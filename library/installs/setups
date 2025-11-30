@@ -38,9 +38,8 @@ if [[ $1 == "--teste" ]]; then
     cat $appdir/config/testing > $appdir/config/define/post/packer
 fi
 
-
 if [[ -e "$appdir/config/profile" ]]; then
-    cat "$appdir/config/profile" > $appdir/config/define/post/packer
+    cat "$appdir/config/profile" >> $appdir/config/define/post/packer
 fi 
 
 if [[ -e "$appdir/distros/preset" ]]; then
