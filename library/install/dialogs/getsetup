@@ -61,7 +61,7 @@ function select_rootdisk() {
 
 ## SELECT DATADISK
 function select_datadisk() {
-    echo "Select Root Partition"
+    echo "Select Data Partition"
     listing_parteds
     read -p "Type Number of Boot Partition : " datanum
     DATAPART="${allparted[$datanum]}"
