@@ -31,6 +31,8 @@ Installation scripts for Sparow OS
 | 27  | ntfs-3g    | managing the windows file systems                                    | extra   |
 | 28  | dosfstools | managing the fat file systems                                        | core    |
 | 29  | xfsprogs   | managing the xfs file systems                                        | core    |
+| 30  | mision-center | Monitor your CPU, Memory, Disk, Network and GPU usage             | core    |
+
 
 
 ## Appearance Information
